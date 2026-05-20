@@ -73,7 +73,7 @@
     <link rel="preload" media="screen and (min-width: 768)" href="assets/images/rainbow-curve.jpg" as="image" crossorigin="anonymous" />
     <link rel="preload" href="assets/data/ui-state.json" as="fetch" crossorigin="anonymous" />
     <style>
-      * { box-sizing: border-box; } body {margin: 0;}.pw-scene-style &gt; canvas{display:block;width:100%;height:100%;user-select:none;}*{scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pw-loading-bar-style{position:relative;display:flex;justify-content:center;align-items:center;}#pwb-loading-wrap{background-color:#06040A;}#iwzo7{height:100dvh;width:100%;position:relative;display:flex;justify-content:center;align-items:center;background-color:#cad3d8;}#i4b8i{position:absolute;display:block;font-size:18px;color:#FFFFFF;font-weight:bold;font-family:"neue-plak-regular";text-align:center;}html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:initial;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;vertical-align:baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}body{line-height:1;}ol, ul{list-style-position:initial;list-style-image:initial;list-style-type:none;}blockquote, q{quotes:none;}blockquote::before, blockquote::after, q::before, q::after{content:none;}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;}b, strong{font-weight:bolder;}i, em{font-style:italic;}@font-face{font-family:neue-plak-regular;src:url("assets/fonts/neue-plak-regular.ttf");}
+      * { box-sizing: border-box; } body {margin: 0;}.pw-scene-style &gt; canvas{display:block;width:100%;height:100%;user-select:none;}*{scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pw-loading-bar-style{position:relative;display:flex;justify-content:center;align-items:center;}#pwb-loading-wrap{background-color:#06040A;}#iwzo7{height:100dvh;width:100%;position:relative;display:flex;justify-content:center;align-items:center;background-color:#06040A;}#i4b8i{position:absolute;display:block;font-size:18px;color:#FFFFFF;font-weight:bold;font-family:"neue-plak-regular";text-align:center;}html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:initial;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;vertical-align:baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}body{line-height:1;}ol, ul{list-style-position:initial;list-style-image:initial;list-style-type:none;}blockquote, q{quotes:none;}blockquote::before, blockquote::after, q::before, q::after{content:none;}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;}b, strong{font-weight:bolder;}i, em{font-style:italic;}@font-face{font-family:neue-plak-regular;src:url("assets/fonts/neue-plak-regular.ttf");}
     </style>
   
 <script>
@@ -458,8 +458,55 @@
     50%  { transform: scale(1.05); opacity: 1; }
     100% { transform: scale(0.8); opacity: 0.6; }
   }
+
+  /* --- Section navigator (added): clickable ticks + hover tooltip --- */
+  #scrollTimeline { width: 16px; }
+  .scroll-timeline__tick {
+    position: absolute;
+    left: 1px;
+    width: 7px;
+    height: 7px;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    cursor: pointer;
+    z-index: 1;
+    transition: background 0.25s ease, width 0.25s ease, height 0.25s ease, box-shadow 0.25s ease;
+  }
+  .scroll-timeline__tick:hover { background: #ffffff; width: 9px; height: 9px; }
+  .scroll-timeline__tick.is-active {
+    background: #7DEDED;
+    box-shadow: 0 0 8px rgba(125, 237, 237, 0.7);
+  }
+  .scroll-timeline__tooltip {
+    position: absolute;
+    left: 22px;
+    transform: translateY(-50%);
+    padding: 5px 11px;
+    background: rgba(10, 19, 34, 0.82);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    border-radius: 7px;
+    color: #ffffff;
+    font-family: 'clashdisplay-light', sans-serif;
+    font-size: 12px;
+    line-height: 1;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    z-index: 4;
+  }
+  .scroll-timeline__tooltip.is-visible { opacity: 1; }
         </style>
-        <div class="scroll-timeline" id="scrollTimeline" aria-hidden="true">
+        <div class="scroll-timeline" id="scrollTimeline" aria-label="Section navigation">
           <div class="scroll-timeline__track">
             <div class="scroll-timeline__fill" id="scrollFill">
             </div>
@@ -540,6 +587,107 @@
     window.addEventListener('pointerup', onPointerUp);
     window.addEventListener('pointercancel', onPointerUp);
   })();
+        </script>
+        <script>
+          /* Section navigator: hover a tick to see the section name, click to jump there. */
+          (function () {
+            var container = document.getElementById('scrollTimeline');
+            var dot = document.getElementById('scrollDot');
+            if (!container) return;
+            var clamp = function (n, a, b) { return Math.min(Math.max(n, a), b); };
+
+            /* Page element id -> label shown in the side navigator. Edit the labels freely. */
+            var SECTIONS = [
+              { id: 'ion9z-2-3',       label: 'Intro' },
+              { id: 'ion9z-2-7',       label: 'Learning' },
+              { id: 'ion9z-2-7-3',     label: 'Platform' },
+              { id: 'idcqhb',          label: 'Architecture' },
+              { id: 'ion9z-2-7-3-2-2', label: 'Showcase' },
+              { id: 'idcqhb-2-2-2',    label: 'Enterprise' },
+              { id: 'idcqhb-2-2-2-3',  label: 'Contact' }
+            ];
+
+            var tip = document.createElement('div');
+            tip.className = 'scroll-timeline__tooltip';
+            container.appendChild(tip);
+
+            var items = [];
+            function maxScroll() { return Math.max(1, document.documentElement.scrollHeight - window.innerHeight); }
+            function scrollNow() { return window.scrollY || window.pageYOffset || 0; }
+
+            function goTo(frac) {
+              var top = frac * maxScroll();
+              if (window.lenis && typeof window.lenis.scrollTo === 'function') { window.lenis.scrollTo(top, { duration: 1.1 }); }
+              else { try { window.scrollTo({ top: top, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, top); } }
+            }
+            function showTip(text, frac) {
+              tip.textContent = text;
+              tip.style.top = (frac * container.offsetHeight) + 'px';
+              tip.classList.add('is-visible');
+            }
+            function hideTip() { tip.classList.remove('is-visible'); }
+            function nearest(frac) {
+              var best = null, bd = Infinity;
+              items.forEach(function (it) { var d = Math.abs(it.frac - frac); if (d < bd) { bd = d; best = it; } });
+              return best;
+            }
+            function highlight() {
+              var n = nearest(clamp(scrollNow() / maxScroll(), 0, 1));
+              items.forEach(function (it) { it.el.classList.toggle('is-active', it === n); });
+            }
+
+            function build() {
+              items.forEach(function (it) { if (it.el && it.el.parentNode) it.el.parentNode.removeChild(it.el); });
+              items = [];
+              var ms = maxScroll();
+              SECTIONS.forEach(function (s) {
+                var target = document.getElementById(s.id);
+                if (!target) return;
+                var top = target.getBoundingClientRect().top + scrollNow();
+                var frac = clamp(top / ms, 0, 1);
+                var tick = document.createElement('button');
+                tick.type = 'button';
+                tick.className = 'scroll-timeline__tick';
+                tick.style.top = (frac * 100) + '%';
+                tick.setAttribute('aria-label', s.label);
+                var it = { label: s.label, frac: frac, el: tick };
+                tick.addEventListener('click', function (e) { e.stopPropagation(); goTo(it.frac); });
+                tick.addEventListener('mouseenter', function () { showTip(it.label, it.frac); });
+                tick.addEventListener('mouseleave', hideTip);
+                container.appendChild(tick);
+                items.push(it);
+              });
+              /* Fallback: if positions look degenerate, spread evenly so the nav still works. */
+              if (items.length > 1) {
+                var fr = items.map(function (i) { return i.frac; });
+                if ((Math.max.apply(null, fr) - Math.min.apply(null, fr)) < 0.05) {
+                  items.forEach(function (it, i) { it.frac = i / (items.length - 1); it.el.style.top = (it.frac * 100) + '%'; });
+                }
+              }
+              highlight();
+            }
+
+            container.addEventListener('mousemove', function (e) {
+              if (dot && dot.classList.contains('is-dragging')) return;
+              var r = container.getBoundingClientRect();
+              var n = nearest(clamp((e.clientY - r.top) / r.height, 0, 1));
+              if (n) showTip(n.label, n.frac);
+            });
+            container.addEventListener('mouseleave', hideTip);
+            container.addEventListener('click', function (e) {
+              if (dot && (e.target === dot || dot.contains(e.target))) return;
+              if (e.target && e.target.classList && e.target.classList.contains('scroll-timeline__tick')) return;
+              var r = container.getBoundingClientRect();
+              var n = nearest(clamp((e.clientY - r.top) / r.height, 0, 1));
+              if (n) goTo(n.frac);
+            });
+
+            if (document.readyState === 'complete') build(); else window.addEventListener('load', build);
+            window.addEventListener('resize', build, { passive: true });
+            window.addEventListener('scroll', highlight, { passive: true });
+            setTimeout(build, 1500);
+            setTimeout(build, 3500);
+          })();
         </script>
       </div>
       <div id="ir2hok" class="pw-block-style">
