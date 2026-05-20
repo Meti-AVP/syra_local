@@ -1,0 +1,1778 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      SYRA LMS | Structured Learning, Elegant Operations
+    </title>
+    <!-- Local Fonts -->
+    <style>
+      @font-face { font-family: 'neue-plak-regular'; src: url('assets/fonts/neue-plak-regular.ttf') format('truetype'); font-weight: normal; font-style: normal; font-display: swap; }
+      @font-face { font-family: 'clashdisplay-regular'; src: url('assets/fonts/clashdisplay-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+      @font-face { font-family: 'clashdisplay-light'; src: url('assets/fonts/clashdisplay-light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
+      @font-face { font-family: 'clashdisplay-medium'; src: url('assets/fonts/clashdisplay-medium.woff') format('woff'); font-weight: 500; font-style: normal; font-display: swap; }
+      @font-face { font-family: 'Inter'; src: local('Inter'), local('Segoe UI'), local('Roboto'), local('Helvetica Neue'), local('Arial'); font-weight: 100 900; font-display: swap; }
+    </style>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="SYRA LMS is a modern multi-role learning management platform built for scalable organizational learning, operational clarity, and enterprise-ready training workflows." />
+    <meta property="og:title" content="SYRA LMS | Structured Learning, Elegant Operations" />
+    <meta property="og:description" content="SYRA LMS is a modern multi-role learning management platform built for scalable organizational learning, operational clarity, and enterprise-ready training workflows." />
+    <meta property="og:image" content="assets/images/main.webp" />
+    <meta property="og:url" content="/" />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/images/favicon-mind.png" />
+    <link href="css/website-base.css" rel="stylesheet" />
+    <link href="css/styles.css" rel="stylesheet" />
+    <script>
+      window._pwInitialPath = "/";
+    </script>
+    <script defer="defer" fetchpriority="high" src="js/script.js">
+    </script>
+    <meta name="pw:has-visual-script" content="false" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/data/scene-state-mobile.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/hdri/studio_small_07_2k.hdr" as="image" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/video-1-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/video-2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/filename-face-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/human-maya-edits-v1-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/particle-sim-small-static-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/cube-simple-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/particle-smaller-bright-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/human-collection-final-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/star2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/icon-set-one-v4-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/icon-set-two-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/icon-set-three-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/icon-set-four-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/ring-inner-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/ring-outer-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/models/ring-middle-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/images/texture2.webp" as="image" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (max-width: 768)" href="assets/images/rainbow-curve.jpg" as="image" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/data/scene-state-desktop.json" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/hdri/studio_small_07_2k.hdr" as="image" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/video-1-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/video-2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/filename-face-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/human-maya-edits-v1-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/particle-sim-small-static-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/cube-simple-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/particle-smaller-bright-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/human-collection-final-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/star2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/icon-set-one-v4-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/icon-set-two-v3-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/icon-set-three-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/icon-set-four-v2-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/ring-inner-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/ring-outer-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/models/ring-middle-final-optimize.glb" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/images/texture2.webp" as="image" crossorigin="anonymous" />
+    <link rel="preload" media="screen and (min-width: 768)" href="assets/images/rainbow-curve.jpg" as="image" crossorigin="anonymous" />
+    <link rel="preload" href="assets/data/ui-state.json" as="fetch" crossorigin="anonymous" />
+    <style>
+      * { box-sizing: border-box; } body {margin: 0;}.pw-scene-style &gt; canvas{display:block;width:100%;height:100%;user-select:none;}*{scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pw-loading-bar-style{position:relative;display:flex;justify-content:center;align-items:center;}#pwb-loading-wrap{background-color:#06040A;}#iwzo7{height:100dvh;width:100%;position:relative;display:flex;justify-content:center;align-items:center;background-color:#cad3d8;}#i4b8i{position:absolute;display:block;font-size:18px;color:#FFFFFF;font-weight:bold;font-family:"neue-plak-regular";text-align:center;}html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:initial;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;vertical-align:baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}body{line-height:1;}ol, ul{list-style-position:initial;list-style-image:initial;list-style-type:none;}blockquote, q{quotes:none;}blockquote::before, blockquote::after, q::before, q::after{content:none;}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;}b, strong{font-weight:bolder;}i, em{font-style:italic;}@font-face{font-family:neue-plak-regular;src:url("assets/fonts/neue-plak-regular.ttf");}
+    </style>
+  
+<script>
+  (function() {
+    // Wait for THREE to be available, then patch GLTFLoader
+    var checkInterval = setInterval(function() {
+      if (typeof THREE !== 'undefined' && THREE.GLTFLoader) {
+        clearInterval(checkInterval);
+        console.log('Logo patcher: THREE found, patching GLTFLoader...');
+        
+        var OriginalGLTFLoader = THREE.GLTFLoader;
+        THREE.GLTFLoader = function() {
+          var loader = new OriginalGLTFLoader();
+          var originalParse = loader.parse.bind(loader);
+          
+          loader.parse = function(data, path, onLoad, onError) {
+            var wrappedOnLoad = function(gltf) {
+              // After GLB loads, hide logo meshes
+              if (gltf && gltf.scene) {
+                gltf.scene.traverse(function(child) {
+                  var name = (child.name || '').toLowerCase();
+                  // Hide anything that looks like a logo inside icon sets
+                  if (name.indexOf('svg') !== -1 || 
+                      name.indexOf('logo') !== -1 ||
+                      name.indexOf('icon') !== -1) {
+                    child.visible = false;
+                    console.log('Logo patcher: hidden', child.name);
+                  }
+                });
+              }
+              onLoad(gltf);
+            };
+            return originalParse(data, path, wrappedOnLoad, onError);
+          };
+          
+          return loader;
+        };
+        THREE.GLTFLoader.prototype = OriginalGLTFLoader.prototype;
+        console.log('Logo patcher: GLTFLoader patched');
+      }
+    }, 100);
+    
+    // Also try direct scene manipulation after a longer delay
+    setTimeout(function() {
+      console.log('Logo patcher: trying direct scene access...');
+      
+      // Find any global that might be the scene
+      for (var key in window) {
+        try {
+          var obj = window[key];
+          if (obj && obj.isScene && obj.traverse) {
+            console.log('Logo patcher: found scene via', key);
+            obj.traverse(function(child) {
+              var name = (child.name || '').toLowerCase();
+              if (name.indexOf('svg') !== -1 || 
+                  name.indexOf('logo') !== -1 ||
+                  name.indexOf('icon') !== -1) {
+                child.visible = false;
+                console.log('Logo patcher: hidden', child.name);
+              }
+            });
+            break;
+          }
+        } catch(e) {}
+      }
+      
+      // Alternative: look for renderers
+      for (var key in window) {
+        try {
+          var obj = window[key];
+          if (obj && obj.render && obj.scene && obj.scene.traverse) {
+            console.log('Logo patcher: found renderer via', key);
+            obj.scene.traverse(function(child) {
+              var name = (child.name || '').toLowerCase();
+              if (name.indexOf('svg') !== -1 || 
+                  name.indexOf('logo') !== -1 ||
+                  name.indexOf('icon') !== -1) {
+                child.visible = false;
+                console.log('Logo patcher: hidden', child.name);
+              }
+            });
+            break;
+          }
+        } catch(e) {}
+      }
+    }, 5000);
+  })();
+</script>
+
+</head>
+  <body id="ie2p">
+    
+    <style>
+      /* Visually hidden but accessible */
+  .sr-only {
+    position:absolute !important;
+    width:1px !important;
+    height:1px !important;
+    padding:0 !important;
+    margin:-1px !important;
+    overflow:hidden !important;
+    clip:rect(0,0,0,0) !important;
+    white-space:nowrap !important;
+    border:0 !important;
+  }
+    </style>
+    <div class="sr-only" aria-hidden="false">
+      <!-- Main headline -->
+      <h1>
+        SYRA LMS — Structured learning. Elegant operations.
+      </h1>
+      <section>
+        <h2>
+          Built for organizations that need more than a traditional LMS.
+        </h2>
+        <h2>
+          Internal training, partner enablement, compliance, accreditation — one platform that adapts to your structure.
+        </h2>
+        <h2>
+          Flexible by design, refined in experience — without unnecessary complexity.
+        </h2>
+        <h2>
+          Learning that feels structured, intuitive, and engaging.
+        </h2>
+        <h3>
+          Guided learning paths designed with structure and sequencing.
+        </h3>
+        <h3>
+          Assessments and grading workflows built for instructors.
+        </h3>
+        <h3>
+          Structured certifications with completion tracking and credentials.
+        </h3>
+        <h3>
+          Live training, SCORM, xAPI — all unified.
+        </h3>
+        <h3>
+          SYRA LMS unifies learning, workflows, certifications, and reporting — for how teams actually learn, operate, and scale.
+        </h3>
+        <h3>
+          One platform. Multiple experiences. Built for administrators, instructors, learners, and enterprise teams.
+        </h3>
+      </section>
+      <section>
+        <h2>
+          A refined LMS for modern organizations.
+        </h2>
+        <h3>
+          Built for real-world operational demands and ready for the workflows you already run.
+        </h3>
+        <h3>
+          Track engagement, certifications, and progress through clear, exportable dashboards.
+        </h3>
+        <h3>
+          A multi-tenant architecture. One platform, tailored role-based experiences. Enterprise-ready infrastructure built for scale.
+        </h3>
+      </section>
+      <section>
+        <h2>
+          Modern learning operations, beautifully organized.
+        </h2>
+      </section>
+      <section>
+        <h2>
+          Enterprise learning. Without the enterprise heaviness.
+        </h2>
+      </section>
+      <!-- Platform Overview Section -->
+      <section id="manifesto">
+        <h2>
+          SYRA LMS — Trusted operational foundation
+        </h2>
+        <p>
+          SYRA LMS combines learning management, operational workflows, reporting, certifications, and role-based administration into a single platform designed for scale.
+        </p>
+        <p>
+          Whether you&#39;re managing internal training, partner enablement, accreditation programs, compliance workflows, or multi-branch learning operations, the platform adapts naturally to your structure.
+        </p>
+        <p>
+          Flexible by design and refined in experience, SYRA LMS helps teams operate with clarity — without adding unnecessary complexity.
+        </p>
+        <h2>
+          Learning Experience
+        </h2>
+        <p>
+          Create seamless learning experiences with video lessons, live sessions, assignments, quizzes, certifications, discussions, SCORM content, and guided learning paths — all connected through one unified platform.
+        </p>
+        <p>
+          Every interaction is designed to feel clear, calm, and purposeful for learners, instructors, and administrators alike.
+        </p>
+        <p>
+          Learning paths, assessments and grading, certifications, video progress tracking, gamification, discussions and messaging, live training, and SCORM &amp; xAPI support are all included.
+        </p>
+        <h2>
+          Role-Based Experience
+        </h2>
+        <p>
+          <em>          Administrators — manage users, branches, permissions, reports, security settings, custom fields, notifications, and platform-wide operations.
+</em>
+        </p>
+        <p>
+          <em>          Instructors — create courses, manage learners, grade assignments, host live sessions, and oversee learning progress from one workspace.
+</em>
+        </p>
+        <p>
+          <em>          Learners — access courses, certifications, assignments, discussions, achievements, and learning paths through a clean, intuitive experience.
+</em>
+        </p>
+        <p>
+          <em>          Candidates &amp; Enterprise Teams — onboarding, assessments, profile management, and multi-branch organizational controls.
+</em>
+        </p>
+        <p>
+          One platform. Multiple experiences. Built around how people actually work — helping organizations manage complex learning operations with elegance and simplicity.
+        </p>
+        <h2>
+          Analytics &amp; Reporting
+        </h2>
+        <p>
+          Track engagement, performance, certifications, progress, assessments, and organizational activity through detailed dashboards and exportable reports.
+        </p>
+        <p>
+          Whether managing a focused training program or a large-scale enterprise ecosystem, SYRA LMS provides the visibility needed to make informed decisions with confidence.
+        </p>
+        <p>
+          Custom reporting, learner analytics, completion tracking, certification visibility, activity monitoring, exportable reports, organizational dashboards, and progress insights are all built in.
+        </p>
+        <h2>
+          Enterprise Readiness
+        </h2>
+        <p>
+          SYRA LMS is designed with modern infrastructure and operational scalability at its core.
+        </p>
+        <p>
+          With support for enterprise integrations, secure deployments, multi-tenant environments, background processing, role-aware access control, and flexible storage systems, the platform is prepared for organizations with evolving operational needs.
+        </p>
+        <p>
+          PostgreSQL and Redis architecture, Docker-ready deployment, S3-compatible storage, API-first design, role-based access control, secure authentication workflows, multi-tenant support, background task processing, and infrastructure scalability — all engineered for enterprise readiness.
+        </p>
+        <h2>
+          Why SYRA LMS
+        </h2>
+        <p>
+          Operational depth — more than a course platform: manage learning workflows, certifications, users, reporting, branches, and permissions from one connected ecosystem.
+        </p>
+        <p>
+          Flexible architecture — adapt the platform to different organizational structures, training models, accreditation processes, and operational requirements.
+        </p>
+        <p>
+          Modern experience — deliver an intuitive experience across administrators, instructors, learners, and enterprise teams.
+        </p>
+        <p>
+          Scalable by design — built with modern technologies and infrastructure patterns to support growing organizations and complex learning environments.
+        </p>
+        <h2>
+          Industries
+        </h2>
+        <p>
+          Designed for organizations where learning matters: healthcare and medical training, accreditation and certification bodies, enterprise learning and development, government and public sector training, vocational and technical education, corporate academies, professional training organizations, and multi-branch institutions.
+        </p>
+        <h2>
+          Ready to begin?
+        </h2>
+        <p>
+          SYRA LMS helps organizations create scalable, refined, and operationally clear learning environments — without the heaviness of traditional enterprise systems.
+        </p>
+        <p>
+          Whether you&#39;re modernizing internal training, launching a certification ecosystem, or managing complex learning operations across teams and branches, SYRA LMS is designed to grow with you.
+        </p>
+      </section>
+      <footer>
+        <h2>
+          Speak With Our Team
+        </h2>
+        <p>
+          Request a demo or speak with our team to explore how SYRA LMS fits your organization.
+        </p>
+      </footer>
+    </div>
+    <div id="pwb-body-wrap">
+      <div id="ibpl">
+        <div id="i5z3" class="pw-scene-style pwb-scene">
+        </div>
+      </div>
+      <div id="ibvqs" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="igw661" class="pw-embed-style pwb-embed">
+        <!-- Scroll Timeline (Left, Centered, Orange Dot & Ring, Gradient Fill, Draggable) -->
+        <style>
+          .scroll-timeline {
+    position: fixed;
+    left: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 500px;
+    width: 0;
+    z-index: 9999;
+    pointer-events: auto;
+    touch-action: none;
+    user-select: none;
+  } /* Put this after your existing .scroll-timeline rule */
+@media (max-width: 768px) {
+  .scroll-timeline {
+    /* 6px from the visual edge, even on devices with a notch */
+    left: calc(env(safe-area-inset-left, 0px) + 6px);
+  }
+}
+
+  /* Track (semi-transparent base line) */
+  .scroll-timeline__track {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  /* Fill portion: gradient from white → cyan (#7DEDED) */
+  .scroll-timeline__fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: linear-gradient(to bottom, #ffffff 0%, #7DEDED 100%);
+  }
+
+  /* Draggable area (200% bigger than the visible dot) */
+  .scroll-timeline__dot {
+    position: absolute;
+    left: 1px; /* center of 2px track */
+    top: 0%;
+    width: 16px; /* 8px × 200% */
+    height: 16px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    z-index: 2;
+  }
+  .scroll-timeline__dot.is-dragging { cursor: grabbing; }
+
+  /* Solid cyan dot */
+  .scroll-timeline__dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #7DEDED;
+    z-index: 2;
+  }
+
+  /* Hover ring (cyan, 20px diameter, 1px border) */
+  .scroll-timeline__dot::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid #7DEDED;
+    background: transparent;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* On hover or dragging, animate the orange ring */
+  .scroll-timeline__dot:hover::after,
+  .scroll-timeline__dot.is-dragging::after {
+    opacity: 1;
+    animation: ringPulse 1.2s ease-in-out infinite;
+  }
+
+  @keyframes ringPulse {
+    0%   { transform: scale(0.8); opacity: 0.6; }
+    50%  { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(0.8); opacity: 0.6; }
+  }
+        </style>
+        <div class="scroll-timeline" id="scrollTimeline" aria-hidden="true">
+          <div class="scroll-timeline__track">
+            <div class="scroll-timeline__fill" id="scrollFill">
+            </div>
+          </div>
+          <div class="scroll-timeline__dot" id="scrollDot">
+          </div>
+        </div>
+        <script>
+          (function () {
+    const container = document.getElementById('scrollTimeline');
+    const fill = document.getElementById('scrollFill');
+    const dot = document.getElementById('scrollDot');
+    const clamp = (n, min, max) => Math.min(Math.max(n, min), max);
+    let dragging = false;
+
+    function getProgressFromScroll() {
+      const doc = document.documentElement;
+      const scrollMax = doc.scrollHeight - window.innerHeight;
+      return scrollMax > 0 ? window.scrollY / scrollMax : 0;
+    }
+
+    function setScrollFromProgress(progress) {
+      const doc = document.documentElement;
+      const scrollMax = doc.scrollHeight - window.innerHeight;
+      window.scrollTo({ top: progress * scrollMax, behavior: 'auto' });
+    }
+
+    function renderFromProgress(progress) {
+      const trackH = container.offsetHeight;
+      const clamped = clamp(progress, 0, 1);
+      const topPx = clamped * trackH;
+      dot.style.top = topPx + 'px';
+      fill.style.height = (clamped * 100) + '%';
+    }
+
+    // Sync with scroll
+    function syncFromScroll() {
+      if (dragging) return;
+      renderFromProgress(getProgressFromScroll());
+    }
+    syncFromScroll();
+    window.addEventListener('scroll', syncFromScroll, { passive: true });
+    window.addEventListener('resize', syncFromScroll);
+
+    // Drag behavior
+    const progressFromPointer = evt => {
+      const rect = container.getBoundingClientRect();
+      const y = evt.clientY - rect.top;
+      return clamp(y / rect.height, 0, 1);
+    };
+
+    function onPointerDown(evt) {
+      dragging = true;
+      dot.classList.add('is-dragging');
+      dot.setPointerCapture?.(evt.pointerId);
+      const p = progressFromPointer(evt);
+      renderFromProgress(p);
+      setScrollFromProgress(p);
+      evt.preventDefault();
+    }
+
+    function onPointerMove(evt) {
+      if (!dragging) return;
+      const p = progressFromPointer(evt);
+      renderFromProgress(p);
+      setScrollFromProgress(p);
+    }
+
+    function onPointerUp() {
+      if (!dragging) return;
+      dragging = false;
+      dot.classList.remove('is-dragging');
+      syncFromScroll();
+    }
+
+    dot.addEventListener('pointerdown', onPointerDown);
+    window.addEventListener('pointermove', onPointerMove, { passive: false });
+    window.addEventListener('pointerup', onPointerUp);
+    window.addEventListener('pointercancel', onPointerUp);
+  })();
+        </script>
+      </div>
+      <div id="ir2hok" class="pw-block-style">
+        <div id="i4l6b4-2-2" class="pw-block-style">
+          <div id="iy7fkw-2" class="pw-relative-overlay-style pwb-relative-overlay">
+            <div id="iikbpk-2-2" class="pw-block-style">
+              <div id="ityh62-2-2-2" class="pw-embed-style pwb-embed">
+                <!-- Human Intent Network | Scrollable Embedded Box (self-contained) -->
+                <style>
+                  /* 1) Local fonts */
+  @font-face { font-family: 'Clash Display'; src: url('assets/fonts/clashdisplay-light.woff') format('woff'); font-weight: 300; font-style: normal; font-display: swap; }
+  @font-face { font-family: 'Clash Display'; src: url('assets/fonts/clashdisplay-regular.woff') format('woff'); font-weight: 400; font-style: normal; font-display: swap; }
+
+  /* 2) Scrollable container */
+  .hin-container {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 720px;
+    height: 100%;                   /* adjust as needed */
+    overflow-y: auto;
+    padding: 24px;
+    color: #fff;                     /* change to #111 for light bg */
+    background: rgba(0,0,0,.0);     /* visible on light pages; tweak or remove */
+    border: 0px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+
+    /* scrolling behavior */
+    overscroll-behavior: contain;    /* keep scroll inside */
+    -webkit-overflow-scrolling: touch;
+
+    /* cosmetic scrollbars */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.3) transparent;
+
+    position: relative;
+    z-index: 1;
+  }
+  .hin-container::-webkit-scrollbar { width: 6px; }
+  .hin-container::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.3);
+    border-radius: 8px;
+  }
+
+  /* 3) Typography */
+  .hin-container h1,
+  .hin-container h2,
+  .hin-container p { margin: 0 0 1em; }
+
+  .hin-container h1 {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 400;                /* regular */
+    font-size: 28px;
+    line-height: 1.2;
+  }
+  .hin-container h2 {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 400;                /* regular */
+    font-size: 24px;                 /* per spec */
+    line-height: 1.3;
+    margin-top: 1.5em;
+  }
+  .hin-container p,
+  .hin-container li {
+    font-family: 'Clash Display', sans-serif;
+    font-weight: 300;                /* light */
+    font-size: 16px;                 /* per spec */
+    line-height: 1.6;
+  }
+                </style>
+                <div class="hin-container" id="hinBox" tabindex="0" aria-label="SYRA LMS platform overview (scrollable)">
+                  <h1>
+                    SYRA LMS — Structured learning. Elegant operations.
+                  </h1>
+                  <p>
+                    Built for organizations that need more than a traditional LMS.
+                  </p>
+                  <p>
+                    SYRA LMS combines learning management, operational workflows, reporting, certifications, and role-based administration into a single platform designed for scale.
+                  </p>
+                  <p>
+                    Whether you&#39;re managing internal training, partner enablement, accreditation programs, compliance workflows, or multi-branch learning operations, the platform adapts naturally to your structure.
+                  </p>
+                  <p>
+                    Flexible by design and refined in experience, SYRA LMS helps teams operate with clarity — without adding unnecessary complexity.
+                  </p>
+                  <h2>
+                    Learning Experience
+                  </h2>
+                  <p>
+                    Learning that feels structured, intuitive, and engaging.
+                  </p>
+                  <p>
+                    Create seamless learning experiences with video lessons, live sessions, assignments, quizzes, certifications, discussions, SCORM content, and guided learning paths — all connected through one unified platform.
+                  </p>
+                  <p>
+                    Every interaction is designed to feel clear, calm, and purposeful for learners, instructors, and administrators alike.
+                  </p>
+                  <p>
+                    <em>                    Learning Paths — design guided journeys with sequencing, milestones, and completion rules.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Assessments &amp; Grading — quizzes, assignments, submissions, grading workflows, and instructor feedback.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Certifications — deliver structured certification experiences with completion tracking and credential workflows.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Live Training, SCORM &amp; xAPI — manage conferences, instructor-led sessions, and enterprise learning standards in one place.
+</em>
+                  </p>
+                  <h2>
+                    Role-Based Experience
+                  </h2>
+                  <p>
+                    One platform. Multiple experiences.
+                  </p>
+                  <p>
+                    SYRA LMS provides tailored environments for administrators, instructors, learners, candidates, and enterprise teams — creating a connected experience without fragmentation.
+                  </p>
+                  <p>
+                    Each role is designed around how people actually work, helping organizations manage complex learning operations with elegance and simplicity.
+                  </p>
+                  <p>
+                    <em>                    Administrators — manage users, branches, permissions, reports, security, and platform-wide operations.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Instructors — create courses, manage learners, grade assignments, host live sessions, and oversee progress from one workspace.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Learners — access courses, certifications, assignments, discussions, achievements, and learning paths through a clean, intuitive experience.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Candidates &amp; Enterprise Teams — onboarding, assessments, profile management, and multi-branch organizational controls.
+</em>
+                  </p>
+                  <h2>
+                    Analytics &amp; Reporting
+                  </h2>
+                  <p>
+                    Clear visibility across learning operations.
+                  </p>
+                  <p>
+                    Track engagement, performance, certifications, progress, assessments, and organizational activity through detailed dashboards and exportable reports.
+                  </p>
+                  <p>
+                    Whether managing a focused training program or a large-scale enterprise ecosystem, SYRA LMS provides the visibility needed to make informed decisions with confidence.
+                  </p>
+                  <h2>
+                    Enterprise Readiness
+                  </h2>
+                  <p>
+                    Built for real-world operational demands.
+                  </p>
+                  <p>
+                    SYRA LMS is designed with modern infrastructure and operational scalability at its core.
+                  </p>
+                  <p>
+                    With support for enterprise integrations, secure deployments, multi-tenant environments, background processing, role-aware access control, and flexible storage systems, the platform is prepared for organizations with evolving operational needs.
+                  </p>
+                  <p>
+                    Reliable, scalable, and integration-ready — without unnecessary complexity.
+                  </p>
+                  <p>
+                    <em>                    PostgreSQL &amp; Redis architecture · Docker-ready deployment · S3-compatible storage.
+</em>
+                  </p>
+                  <p>
+                    <em>                    API-first design · Role-based access control · Secure authentication workflows.
+</em>
+                  </p>
+                  <p>
+                    <em>                    Multi-tenant support · Background task processing · Enterprise integration readiness.
+</em>
+                  </p>
+                  <h2>
+                    Why SYRA LMS
+                  </h2>
+                  <p>
+                    More than a course platform — manage learning workflows, certifications, users, reporting, branches, and permissions from one connected ecosystem.
+                  </p>
+                  <p>
+                    Adapt the platform to different organizational structures, training models, accreditation processes, and operational requirements.
+                  </p>
+                  <p>
+                    Deliver an intuitive experience across administrators, instructors, learners, and enterprise teams.
+                  </p>
+                  <p>
+                    Built with modern technologies and infrastructure patterns to support growing organizations and complex learning environments.
+                  </p>
+                  <h2>
+                    Designed for organizations where learning matters.
+                  </h2>
+                  <p>
+                    SYRA LMS supports organizations that require structured learning operations, operational oversight, and scalable training ecosystems.
+                  </p>
+                  <p>
+                    Healthcare &amp; medical training · Accreditation &amp; certification bodies · Enterprise learning &amp; development · Government &amp; public sector training · Vocational &amp; technical education · Corporate academies · Professional training organizations · Multi-branch institutions.
+                  </p>
+                  <h2>
+                    Ready to begin?
+                  </h2>
+                  <p>
+                    SYRA LMS helps organizations create scalable, refined, and operationally clear learning environments — without the heaviness of traditional enterprise systems.
+                  </p>
+                  <p>
+                    Whether you&#39;re modernizing internal training, launching a certification ecosystem, or managing complex learning operations across teams and branches, SYRA LMS is designed to grow with you.
+                  </p>
+                </div>
+                <script>
+                  /* Scroll trap: keep scrolling inside the box and lock the page while interacting */
+(function () {
+  const el = document.getElementById('hinBox');
+  if (!el) return;
+
+  let bodyScrollLocked = false;
+  const html = document.documentElement;
+  const body = document.body;
+
+  function lockBodyScroll() {
+    if (bodyScrollLocked) return;
+    bodyScrollLocked = true;
+    // Lock page scroll
+    html.style.overflow = 'hidden';
+    body.style.overflow = 'hidden';
+    // Prevent scroll chaining on some browsers
+    html.style.overscrollBehavior = 'none';
+    body.style.overscrollBehavior = 'none';
+  }
+
+  function unlockBodyScroll() {
+    if (!bodyScrollLocked) return;
+    bodyScrollLocked = false;
+    html.style.overflow = '';
+    body.style.overflow = '';
+    html.style.overscrollBehavior = '';
+    body.style.overscrollBehavior = '';
+  }
+
+  // --- Inner scrolling logic (same as before), but we lock the page while inside ---
+  el.addEventListener('mouseenter', lockBodyScroll);
+  el.addEventListener('mouseleave', unlockBodyScroll);
+  el.addEventListener('focusin', lockBodyScroll);
+  el.addEventListener('focusout', unlockBodyScroll);
+
+  // Touch: lock on touchstart; unlock when touch ends/cancels
+  el.addEventListener('touchstart', () => { lockBodyScroll(); }, { passive: true });
+  ['touchend','touchcancel'].forEach(evt =>
+    el.addEventListener(evt, () => { unlockBodyScroll(); }, { passive: true })
+  );
+
+  // Mouse wheel: scroll the box and stop the page
+  el.addEventListener('wheel', (e) => {
+    // If the pointer is over the box, keep page locked and scroll the box only
+    lockBodyScroll();
+    el.scrollTop += e.deltaY;
+    e.preventDefault();
+  }, { passive: false });
+
+  // Touch drag to scroll the box (prevents page scroll)
+  let lastY = 0;
+  el.addEventListener('touchstart', (e) => {
+    lastY = e.touches[0].clientY;
+  }, { passive: true });
+
+  el.addEventListener('touchmove', (e) => {
+    const y = e.touches[0].clientY;
+    el.scrollTop += (lastY - y);
+    lastY = y;
+    // Ensure the page stays still during touch scrolling
+    e.preventDefault();
+  }, { passive: false });
+
+  // Keyboard scrolling when the box is focused (lock page while focused)
+  el.addEventListener('keydown', (e) => {
+    const step = 48; // px
+    const page = Math.max(0, el.clientHeight - 24);
+    if (['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(e.key)) {
+      lockBodyScroll();
+      e.preventDefault();
+      switch (e.key) {
+        case 'ArrowDown': el.scrollTop += step; break;
+        case 'ArrowUp':   el.scrollTop -= step; break;
+        case 'PageDown':
+        case ' ':         el.scrollTop += page; break;
+        case 'PageUp':    el.scrollTop -= page; break;
+        case 'Home':      el.scrollTop  = 0; break;
+        case 'End':       el.scrollTop  = el.scrollHeight; break;
+      }
+    }
+  });
+
+  // Safety: if the user somehow leaves the box (e.g., Esc closes a modal), unlock the page
+  document.addEventListener('pointerdown', (e) => {
+    if (!el.contains(e.target)) unlockBodyScroll();
+  });
+})();
+                </script>
+              </div>
+            </div>
+            <div id="irydwl-2" class="pw-block-style">
+            </div>
+            <p id="i64iv-2-2-4-2-2" data-has-states="1" class="pw-text-style">
+              Close
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="i178gv" class="pw-block-style">
+        <div id="i178gv-2" class="pw-block-style">
+          <div id="i178gv-2-2" class="pw-block-style">
+          </div>
+          <div id="i178gv-2-2-2" class="pw-block-style">
+          </div>
+          <div id="i178gv-2-2-2-2" class="pw-block-style">
+          </div>
+          <div id="i178gv-2-2-2-2-3" class="pw-block-style">
+          </div>
+          <div id="i178gv-2-2-2-2-2" class="pw-block-style">
+          </div>
+          <div id="i178gv-2-2-2-2-2-2" class="pw-block-style">
+          </div>
+        </div>
+      </div>
+      <p id="i64iv-2-2" class="pw-text-style">
+        SYRA
+      </p>
+      <div id="ipz7zv" class="pw-block-style">
+        <p id="i64iv-2-2-4" data-has-states="1" class="pw-text-style">
+          Platform
+        </p>
+      </div>
+      <div id="i70pm" class="pw-block-style">
+        <p id="i64iv" class="pw-text-style">
+          Structured learning.
+          <br id="int0l2" />
+          Elegant operations.
+          <br id="ig1caj" />
+        </p>
+        <p id="i64iv-2" class="pw-text-style">
+          Scroll to Explore
+        </p>
+      </div>
+      <div id="ion9z-2-3" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-6-2-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="i70pm-2" class="pw-block-style">
+        <p id="i64iv-3" class="pw-text-style">
+          Built for organizations
+          <br id="in038x" />
+          that need more than a traditional LMS.
+        </p>
+      </div>
+      <div id="i70pm-2-2" class="pw-block-style">
+        <p id="i64iv-3-2" class="pw-text-style">
+          Internal training, partner enablement, compliance,
+          <br id="ivfj9s" />
+          accreditation — one platform that adapts to your structure.
+          <br id="iass2m" />
+        </p>
+      </div>
+      <div id="i70pm-2-2-2" class="pw-block-style">
+        <p id="i64iv-3-2-2" class="pw-text-style">
+          Flexible by design,
+          <br id="ic66mp" />
+          refined in experience — without unnecessary complexity.
+          <br id="ib84w1" />
+        </p>
+      </div>
+      <div id="ion9z-2-4" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-6-2-3" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-5" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-6-2-4" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-6" class="pw-block-style">
+      </div>
+      <div id="ion9z-2-6-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="ion9z-2-8" class="pw-block-style">
+      </div>
+      <div id="iu4qc7-3-2" class="pw-block-style">
+        <p id="isab62-3-2" class="pw-text-style">
+          Learning that feels structured, intuitive, and
+          <span id="iu8k3t-2-2">          engaging
+</span>
+          .
+        </p>
+      </div>
+      <div id="ion9z-2" class="pw-block-style">
+      </div>
+      <div id="i70pm-2-2-2-2-2-3-3" class="pw-block-style">
+        <div id="i70pm-2-2-2-3" class="pw-block-style">
+          <p id="i64iv-3-2-2-3" class="pw-text-style">
+            Guided learning paths designed with structure and
+            <span id="iia0g6">            sequencing
+</span>
+            .
+            <br id="i8wqlf" />
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-2" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-2" class="pw-text-style">
+            Assessments and
+            <span id="ikeoqw">            grading
+</span>
+            workflows built for instructors.
+            <br id="iuhvku" />
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-3" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-3" class="pw-text-style">
+            Structured certifications with completion tracking and
+            <span id="il3dbg">            credentials
+</span>
+            .
+            <br id="ii0cub" />
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-2-2-2" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-2-2-2" class="pw-text-style">
+            Live training, SCORM, xAPI —
+            <span id="iiqbhk">            all unified.
+</span>
+            <br id="i9wsll-2" />
+          </p>
+        </div>
+        <div id="i6wmz" class="pw-block-style">
+          <div id="ion9z-2-7" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2-2-2" class="pw-block-style">
+          </div>
+        </div>
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="i70pm-2-2-2-2-2-3-3-2" class="pw-block-style">
+        <div id="i70pm-2-2-2-3-4" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-4" class="pw-text-style">
+            SYRA LMS unifies learning, workflows, certifications, and reporting — for how teams actually
+            <span id="idnze6">            learn
+</span>
+            ,
+            <span id="iqd0qq">            operate
+</span>
+            , and
+            <span id="imu3yo">            scale
+</span>
+            .
+            <br id="ia1b5c" />
+          </p>
+        </div>
+        <div id="i6wmz-2" class="pw-block-style">
+          <div id="ion9z-2-7-3" class="pw-block-style">
+          </div>
+        </div>
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="ion9z-2-2" class="pw-block-style">
+      </div>
+      <div id="i70pm-2-2-2-3-4-3-2" class="pw-block-style">
+        <p id="i64iv-3-2-2-3-4-3-2" class="pw-text-style">
+          One platform. Multiple experiences. Built for administrators, instructors, learners, and
+          <span id="iz15o6">          enterprise teams.
+</span>
+        </p>
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="ion9z-2-2-3" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="iu4qc7-2-3" class="pw-block-style">
+        <p id="isab62-2-3" class="pw-text-style">
+          A refined LMS for modern organizations.
+        </p>
+      </div>
+      <div id="idcqhb" class="pw-block-style">
+      </div>
+      <div id="i70pm-2-2-2-2-2-3-3-2-2" class="pw-block-style">
+        <div id="i70pm-2-2-2-3-4-2" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-4-2" class="pw-text-style">
+            Built for real-world operational demands and ready for the workflows you already
+            <span id="ilno1h">            run
+</span>
+            .
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-2-3" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-2-3" class="pw-text-style">
+            Track engagement, certifications, and progress through
+            <span id="iypnbp">            clear, exportable dashboards
+</span>
+            .
+          </p>
+        </div>
+        <div id="i6wmz-2-2" class="pw-block-style">
+          <div id="ion9z-2-7-3-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2-3-2" class="pw-block-style">
+          </div>
+        </div>
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="idcqhb-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="idcqhb-2-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2-2-3" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="i70pm-2-2-2-2-2-3-3-2-2-2" class="pw-block-style">
+        <div id="i70pm-2-2-2-3-4-2-2-3" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-4-2-2-3" class="pw-text-style">
+            A
+            <span id="icxtjw">            multi-tenant
+</span>
+            <span id="i9idni-2">            architecture
+</span>
+            .
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-2-3-2-2-2" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-2-3-2-2-2" class="pw-text-style">
+            <span id="ig96zh-2">            One platform
+</span>
+            , tailored
+            <span id="ihpe8j-2-2">            role-based experiences
+</span>
+            .
+          </p>
+        </div>
+        <div id="i70pm-2-2-2-3-4-2-2-2" class="pw-block-style">
+          <p id="i64iv-3-2-2-3-4-2-2-2" class="pw-text-style">
+            Enterprise-ready
+            <span id="ihkpl9">            infrastructure
+</span>
+            built for scale.
+          </p>
+        </div>
+        <div id="i6wmz-2-2-2" class="pw-block-style">
+          <div id="ion9z-2-7-3-2-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-3-2-2-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2-3-2-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-3-2-2-2-2" class="pw-block-style">
+          </div>
+          <div id="ion9z-2-7-2-3-2-2-2" class="pw-block-style">
+          </div>
+        </div>
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="ion9z-2-7-3-2-2-2-2-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2-2-2-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="iu4qc7-2-2" class="pw-block-style">
+        <p id="isab62-2-2" class="pw-text-style">
+          Modern learning operations,
+          <br id="isp2ml" />
+          beautifully
+          <span id="i2e849">          organized
+</span>
+          .
+        </p>
+        <p id="isab62-2-2-3" class="pw-text-style">
+          Modern learning operations, beautifully
+          <span id="i2e849-2">          organized
+</span>
+          .
+        </p>
+      </div>
+      <div id="idcqhb-2-2-2" class="pw-block-style">
+      </div>
+      <div id="idcqhb-2-2-2-2" class="pw-block-style">
+      </div>
+      <div id="ibvqs-2-2-2-2-2-2-2-2-2-2-2-3-2" class="pw-anchor-style pwb-anchor">
+      </div>
+      <div id="iu4qc7-2-2-2" class="pw-block-style">
+        <div id="i4l6b4-2" class="pw-block-style">
+          <div id="iy7fkw" class="pw-relative-overlay-style pwb-relative-overlay">
+            <div id="iikbpk-2" class="pw-block-style">
+              <p id="isab62-2-2-2-2-2" class="pw-text-style">
+                For Enterprise Teams
+                <br id="idx48k" />
+                &amp; Organizations
+                <br id="ifah6c-2-2" />
+              </p>
+              <p id="isab62-2-2-2-2-2-2" class="pw-text-style">
+                Operate multi-branch learning environments at scale.
+              </p>
+              <div id="iigein" class="pw-block-style">
+                <div id="iigein-2" class="pw-block-style">
+                  <p id="isab62-2-2-2-2-2-2-2" class="pw-text-style">
+                    <span id="i6dd3g">                    /
+</span>
+                    <span id="ima4dn">                    Multi-Tenant Architecture /
+</span>
+                    Branches, groups, and tenants under one platform.
+                  </p>
+                  <p id="isab62-2-2-2-2-2-2-2-2" class="pw-text-style">
+                    <span id="isfiii">                    / Role-Based Access Control /
+</span>
+                    Tailored permissions for every role.
+                  </p>
+                  <p id="isab62-2-2-2-2-2-2-2-2-2" class="pw-text-style">
+                    <span id="ij4hlj">                    /
+</span>
+                    <span id="ikd8mh">                    API-First Integrations /
+</span>
+                    Integration-ready with your existing systems.
+                  </p>
+                  <p id="isab62-2-2-2-2-2-2-2-2-2-3" class="pw-text-style">
+                    <span id="imaqtf">                    /
+</span>
+                    <span id="inv92f">                    Scalable Infrastructure /
+</span>
+                    PostgreSQL, Redis, Docker, and
+                    <span id="ioeyrf">                    S3-compatible storage.
+</span>
+                  </p>
+                  <p id="isab62-2-2-2-2-2-2-2-2-2-3-2" class="pw-text-style">
+                    <span id="iinec3">                    /
+</span>
+                    <span id="irr70q">                    Secure Cloud Deployment /
+</span>
+                    <span id="icmrbk">                    Enterprise-grade authentication.
+</span>
+                    Background processing and operational scalability built in.
+                  </p>
+                </div>
+                <div id="igr6xa" class="pw-block-style">
+                  <div id="ityh62-2" class="pw-embed-style pwb-embed">
+                    <div style="width:100%;padding:20px;background:rgba(255,255,255,0.05);border-radius:8px;text-align:center;color:#fff;font-family:sans-serif;"><p style="margin:0;font-size:18px;">Request a Demo</p><p style="margin:8px 0 0;font-size:14px;opacity:0.7;">Coming soon</p></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="irydwl" class="pw-block-style">
+            </div>
+            <p id="i64iv-2-2-4-2" data-has-states="1" class="pw-text-style">
+              Close
+            </p>
+          </div>
+        </div>
+        <p id="isab62-2-2-2" class="pw-text-style">
+          Enterprise learning.
+          <br id="iypmwl" />
+          Without the enterprise heaviness.
+          <br id="ifah6c" />
+        </p>
+        <p id="isab62-2-2-2-2" class="pw-text-style">
+          Enterprise learning. Without the enterprise heaviness.
+          <br id="ifah6c-2" />
+        </p>
+        <img src="assets/images/bg-green.png" loading="lazy" id="iwsumh" class="pw-image-style" />
+        <div id="isb8ph" data-has-states="1" class="pw-block-style">
+          <p id="i64iv-2-2-2" class="pw-text-style">
+            Request a Demo
+          </p>
+        </div>
+        <div id="iuxy3j" class="pw-block-style">
+          <p id="i64iv-2-2-3" class="pw-text-style">
+            SYRA LMS © 2026
+          </p>
+          <p id="i64iv-2-2-3-2" data-has-states="1" class="pw-text-style">
+            Speak With Our Team
+          </p>
+        </div>
+      </div>
+      <div id="idcqhb-2-2-2-3" class="pw-block-style">
+      </div>
+    </div>
+    <div id="pwb-loading-wrap">
+      <div id="iwzo7">
+        <div size="120" progresscolor="#ffffff" progresswidth="1" backgroundcolor="#ffffff33" backgroundwidth="1" id="ievk7" class="pw-loading-bar-style pwb-loading-bar">
+          <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="242" height="242" viewport="0 0 242 242" id="ifmhu">
+            <circle fill="transparent" stroke-dashoffset="0" r="120" cx="121" cy="121" stroke-dasharray="753.9822368615503" stroke="#ffffff33" stroke-width="1" id="i0oci">
+            </circle>
+            <circle fill="transparent" r="120" cx="121" cy="121" stroke-dasharray="753.9822368615503" stroke-dashoffset="753.9822368615503" stroke="#ffffff" stroke-width="1" id="i4rwi" class="pwb-loading-bar-circle">
+            </circle>
+          </svg>
+          <div id="i4b8i" class="pwb-loading-bar-text">
+            0%
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Waterfall optimization -->
+    <script type="text/javascript">
+      window._pwPreviewResourceUrls = [];
+          (function waterfallOptimizationScript(){window._pwPreviewResourceUrls=window._pwPreviewResourceUrls||[];if(!window._pwLoadFileRequestsCache)window._pwLoadFileRequestsCache=new Map;if(!window._pwLoadFileResolveFnCache)window._pwLoadFileResolveFnCache=new Map;window._pwSetFileCache=(fileUrl,blob)=>{if(!window._pwLoadFileResolveFnCache)throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);const resolveFn=window._pwLoadFileResolveFnCache.get(fileUrl);if(!resolveFn)throw new Error(`Resolve function for file "${fileUrl}" not found.`);resolveFn(blobUrl)};window._pwWaitForExplicitFileResolve=fileUrl=>{if(!window._pwLoadFileResolveFnCache)throw new Error(`Variable "_pwLoadFileResolveFnCache" is undefined.`);if(!window._pwLoadFileRequestsCache)throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);if(window._pwLoadFileResolveFnCache.has(fileUrl)&&window._pwLoadFileRequestsCache.has(fileUrl))return;let resolveFn=void 0;const explicitWaitPromise=new Promise(resolve=>{resolveFn=resolve});window._pwLoadFileResolveFnCache.set(fileUrl,resolveFn);window._pwLoadFileRequestsCache.set(fileUrl,explicitWaitPromise)};window._pwLoadFileFromCacheHelper=async fileUrl=>{if(!fileUrl)return void 0;try{const response=await fetch(fileUrl);if(!response.ok)return void 0;const blob=await response.blob();const blobUrl=(window.URL||window.webkitURL).createObjectURL(blob);return blobUrl}catch(error){return void 0}};window._pwLoadFileFromCache=async fileUrl=>{if(!fileUrl)return void 0;if(!window._pwLoadFileRequestsCache)throw new Error(`Variable "_pwLoadFileRequestsCache" is undefined.`);let requestPromise=window._pwLoadFileRequestsCache.get(fileUrl);if(!requestPromise){if(!window._pwLoadFileFromCacheHelper)throw new Error(`Function "_pwLoadFileFromCacheHelper" is undefined.`);requestPromise=window._pwLoadFileFromCacheHelper(fileUrl);window._pwLoadFileRequestsCache.set(fileUrl,requestPromise)}return await requestPromise};for(const explicitResourceUrl of window._pwPreviewResourceUrls)window._pwWaitForExplicitFileResolve(explicitResourceUrl)})();
+    </script>
+    <script type="text/javascript">
+      window._pwExecLoadingPageJavascript = () => {
+            var items = document.querySelectorAll('#ievk7');
+          for (var i = 0, len = items.length; i < len; i++) {
+            (function(){
+const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6e3;const loadingStopAtTime=4500;if(!window._pwLoadingProgressEasing){window._pwLoadingProgressEasing=x=>{return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}}if(!window._pwSetLoadingProgress){window._pwSetLoadingProgress=(timeMilliseconds,progressText,circle)=>{const progress=Math.round(window._pwLoadingProgressEasing((timeMilliseconds+50)/loadingDuration)*100);if(progressText){progressText.dataset.time=`${timeMilliseconds}`;progressText.textContent=`${progress}%`}if(!circle)return;const radius=circle?parseInt(circle.getAttribute("r")||"0"):40;const c=Math.PI*(radius*2);const circleProgress=(100-progress)/100*c;circle.style.strokeDashoffset=`${circleProgress}`}}const timeId=setInterval(()=>{const progressText=Array.from(_this.children).find(el=>el.classList.contains("pwb-loading-bar-text"));const circle=_this.querySelector(`.pwb-loading-bar-circle`);const currentProgress=parseInt(progressText.dataset.time||"0");window._pwSetLoadingProgress(currentProgress+50,progressText,circle);if(currentProgress>=loadingStopAtTime){clearInterval(timeId)}},50)
+}.bind(items[i]))();
+          }
+          };
+          window._pwExecLoadingPageJavascript();
+    </script>
+    <script>
+      (function () {
+  /* ---------- CONFIG ---------- */
+  const OVERLAY_SELECTOR = '.pw-relative-overlay-style.pwb-relative-overlay';
+  const SCROLL_CONTAINER_SELECTORS = [
+    '[data-scroll-container]','#lenis-root','.lenis-scroll','.smooth-scroll','main[role="main"]'
+  ];
+  const EXEMPT_SELECTOR = '#hinBox, .hin-container';   // the scrollable box
+  const SLOW_FACTOR = 0.01; // ≈ 100× slower
+
+  /* ---------- SCROLL ROOT ---------- */
+  function getScrollRoot() {
+    for (const sel of SCROLL_CONTAINER_SELECTORS) {
+      const el = document.querySelector(sel);
+      if (el && el.scrollHeight > el.clientHeight) return el;
+    }
+    const root = document.scrollingElement || document.documentElement;
+    if (document.body && document.body.scrollHeight > document.body.clientHeight &&
+        document.body.scrollHeight >= root.scrollHeight) return document.body;
+    return root;
+  }
+  let SCROLL_ROOT = getScrollRoot();
+  window.addEventListener('load', () => { SCROLL_ROOT = getScrollRoot(); });
+  new MutationObserver(() => { SCROLL_ROOT = getScrollRoot(); })
+    .observe(document.documentElement, { childList: true, subtree: true });
+
+  /* ---------- OVERLAY OPEN? ---------- */
+  function isOverlayVisible(el) {
+    const cs = getComputedStyle(el);
+    if (cs.display === 'none' || cs.visibility === 'hidden' || parseFloat(cs.opacity) <= 0.01) return false;
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && r.bottom > 0 && r.right > 0 && r.top < innerHeight && r.left < innerWidth;
+  }
+  function overlayIsOpen() {
+    return Array.from(document.querySelectorAll(OVERLAY_SELECTOR)).some(isOverlayVisible);
+  }
+
+  /* ---------- HELPERS ---------- */
+  const insideExempt = (t) => t instanceof Element && !!t.closest(EXEMPT_SELECTOR);
+  const dampScrollBy = (dy) => { if (SCROLL_ROOT) SCROLL_ROOT.scrollTop += dy * SLOW_FACTOR; };
+
+  /* ---------- NEW: EXEMPT GUARDS (capture) ---------- */
+  function installExemptGuards(root=document) {
+    const targets = root.querySelectorAll(EXEMPT_SELECTOR);
+    targets.forEach(el => {
+      // Mouse/trackpad wheel: allow default on the box, but stop it from reaching window
+      ['wheel','mousewheel','DOMMouseScroll'].forEach(type => {
+        el.addEventListener(type, (e) => {
+          if (!overlayIsOpen()) return;  // no need when overlay is closed
+          e.stopPropagation();           // don't let page/global listeners run
+          // DO NOT preventDefault: native element scroll should occur
+        }, { capture: true, passive: true });
+      });
+
+      // Touch: same idea—let the box handle it, block bubbling upward
+      el.addEventListener('touchmove', (e) => {
+        if (!overlayIsOpen()) return;
+        e.stopPropagation();
+        // DO NOT preventDefault: keep native scrolling inside the box
+      }, { capture: true, passive: true });
+
+      // Keyboard: if focus is inside the box, keep arrows/page/space from reaching page listeners
+      el.addEventListener('keydown', (e) => {
+        if (!overlayIsOpen()) return;
+        const keys = ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
+        if (!keys.includes(e.key)) return;
+        e.stopPropagation(); // let default act on the box, not the page
+      }, { capture: true });
+    });
+  }
+  installExemptGuards();
+  // Re-install guards if the box is mounted later
+  new MutationObserver(muts => {
+    for (const m of muts) {
+      if (m.addedNodes && m.addedNodes.length) installExemptGuards(m.target.ownerDocument || document);
+    }
+  }).observe(document.documentElement, { childList: true, subtree: true });
+
+  /* ---------- DAMP PAGE SCROLL (unchanged, but will not see events from the box now) ---------- */
+  window.addEventListener('wheel', (e) => {
+    if (!overlayIsOpen()) return;
+    if (insideExempt(e.target)) return; // guards will also stop this, but double-check
+    e.preventDefault();
+    e.stopPropagation();
+    dampScrollBy(e.deltaY || 0);
+  }, { passive: false, capture: true });
+
+  let lastY = 0, touching = false, touchExempt = false;
+  window.addEventListener('touchstart', (e) => {
+    if (!overlayIsOpen()) return;
+    touching = true;
+    touchExempt = insideExempt(e.target);
+    lastY = e.touches[0].clientY;
+  }, { passive: true, capture: true });
+
+  window.addEventListener('touchmove', (e) => {
+    if (!overlayIsOpen() || !touching || touchExempt) return;
+    const y = e.touches[0].clientY;
+    const delta = lastY - y;
+    lastY = y;
+    e.preventDefault();
+    e.stopPropagation();
+    dampScrollBy(delta);
+  }, { passive: false, capture: true });
+
+  window.addEventListener('touchend', () => { touching = false; touchExempt = false; }, { capture: true });
+
+  window.addEventListener('keydown', (e) => {
+    if (!overlayIsOpen()) return;
+    if (insideExempt(document.activeElement)) return;
+    const keys = ['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '];
+    if (!keys.includes(e.key)) return;
+
+    const page = Math.max(0, (SCROLL_ROOT?.clientHeight || innerHeight) - 24);
+    let delta = 0;
+    switch (e.key) {
+      case 'ArrowDown': delta =  48; break;
+      case 'ArrowUp':   delta = -48; break;
+      case 'PageDown':
+      case ' ':         delta =  page; break;
+      case 'PageUp':    delta = -page; break;
+      case 'Home':      SCROLL_ROOT.scrollTop = 0; e.preventDefault(); e.stopPropagation(); return;
+      case 'End':       SCROLL_ROOT.scrollTop = SCROLL_ROOT.scrollHeight; e.preventDefault(); e.stopPropagation(); return;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    dampScrollBy(delta);
+  }, { capture: true });
+})();
+    </script>
+
+    <!-- Cosmic hero overlay: independent canvas, fades on scroll, no impact on 3D scene -->
+    <style>
+      #cosmic-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        pointer-events: none;
+        transition: opacity 80ms linear;
+      }
+    </style>
+    <canvas id="cosmic-bg"></canvas>
+    <script>
+      (function () {
+        const canvas = document.getElementById('cosmic-bg');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let W = 0, H = 0;
+        const DPR = Math.min(window.devicePixelRatio || 1, 2);
+
+        function hexRGBA(hex, a) {
+          const r = parseInt(hex.slice(1, 3), 16);
+          const g = parseInt(hex.slice(3, 5), 16);
+          const b = parseInt(hex.slice(5, 7), 16);
+          return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
+        }
+
+        let stars = [];
+        let particles = [];
+        let planets = [];
+
+        const MW = { cx: 0.5, cy: 0.45, angle: -0.45, longR: 0.7, shortR: 0.08 };
+
+        function initStars() {
+          stars = [];
+          const total = Math.floor((W * H) / 4200);
+          const mwCount = Math.floor(total * 0.4);
+          const fieldCount = total - mwCount;
+          const palette = ['#ffffff', '#ffffff', '#ffffff', '#7DEDED', '#B07DED', '#7CEA9F'];
+          for (let i = 0; i < fieldCount; i++) {
+            stars.push({
+              x: Math.random() * W,
+              y: Math.random() * H,
+              r: Math.random() * 1.2 + 0.3,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.4 + Math.random() * 1.6,
+              baseAlpha: 0.35 + Math.random() * 0.55,
+              color: palette[Math.floor(Math.random() * palette.length)],
+              layer: 'field'
+            });
+          }
+          const cx = W * MW.cx, cy = H * MW.cy;
+          const ang = MW.angle;
+          for (let i = 0; i < mwCount; i++) {
+            const u = (Math.random() - 0.5) * W * MW.longR * 2;
+            const v = ((Math.random() + Math.random() + Math.random()) / 3 - 0.5) * H * MW.shortR * 2.5;
+            const x = cx + u * Math.cos(ang) - v * Math.sin(ang);
+            const y = cy + u * Math.sin(ang) + v * Math.cos(ang);
+            stars.push({
+              x: x, y: y,
+              r: Math.random() * 1.1 + 0.25,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.4 + Math.random() * 1.6,
+              baseAlpha: 0.45 + Math.random() * 0.5,
+              color: palette[Math.floor(Math.random() * palette.length)],
+              layer: 'mw'
+            });
+          }
+        }
+
+        function initParticles() {
+          particles = [];
+          for (let i = 0; i < 26; i++) {
+            particles.push({
+              x: Math.random() * W,
+              y: Math.random() * H,
+              vx: (Math.random() - 0.5) * 0.18,
+              vy: (Math.random() - 0.5) * 0.18,
+              r: 1 + Math.random() * 1.8,
+              pulsePhase: Math.random() * Math.PI * 2,
+              pulseSpeed: 0.0008 + Math.random() * 0.0012,
+              color: ['#7DEDED', '#B07DED', '#FFFFFF', '#7CEA9F'][Math.floor(Math.random() * 4)]
+            });
+          }
+        }
+
+        function initPlanets() {
+          // Stronger float amplitudes (~2.5x of previous)
+          planets = [
+            { fx: 0.13, fy: 0.72, r: 5,   color: '#B07DED', phaseX: 0.0, phaseY: 1.2, ampX: 18, ampY: 14 },
+            { fx: 0.55, fy: 0.16, r: 3,   color: '#7CEA9F', phaseX: 1.5, phaseY: 0.4, ampX: 14, ampY: 12 },
+            { fx: 0.72, fy: 0.82, r: 4,   color: '#7DEDED', phaseX: 0.8, phaseY: 2.1, ampX: 16, ampY: 13 },
+            { fx: 0.92, fy: 0.58, r: 4.5, color: '#F0B070', phaseX: 2.4, phaseY: 0.9, ampX: 13, ampY: 16 }
+          ];
+        }
+
+        function resize() {
+          W = window.innerWidth;
+          H = window.innerHeight;
+          canvas.width = W * DPR;
+          canvas.height = H * DPR;
+          canvas.style.width = W + 'px';
+          canvas.style.height = H + 'px';
+          ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+          initStars();
+          initParticles();
+          initPlanets();
+        }
+
+        // Mouse parallax (objects shift WITH the mouse — "spatial" feel)
+        let mouseTargetX = 0, mouseTargetY = 0;
+        let mouseLerpX = 0, mouseLerpY = 0;
+        window.addEventListener('mousemove', function (e) {
+          mouseTargetX = (e.clientX / W) - 0.5;
+          mouseTargetY = (e.clientY / H) - 0.5;
+        }, { passive: true });
+        window.addEventListener('touchmove', function (e) {
+          if (e.touches.length > 0) {
+            mouseTargetX = (e.touches[0].clientX / W) - 0.5;
+            mouseTargetY = (e.touches[0].clientY / H) - 0.5;
+          }
+        }, { passive: true });
+
+        // Scroll → opacity fade + zoom-in (camera flies through)
+        let scrollProg = 0;
+        function updateScroll() {
+          const s = window.scrollY || window.pageYOffset || 0;
+          scrollProg = Math.max(0, Math.min(1, s / H));
+          const op = 1 - scrollProg;
+          canvas.style.opacity = op;
+          canvas.style.display = op > 0.01 ? 'block' : 'none';
+        }
+
+        let t = 0;
+
+        function drawMilkyWay() {
+          const cx = W * MW.cx, cy = H * MW.cy;
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(MW.angle);
+          const ng = ctx.createRadialGradient(0, 0, 0, 0, 0, W * MW.longR);
+          ng.addColorStop(0,    hexRGBA('#B07DED', 0.12));
+          ng.addColorStop(0.35, hexRGBA('#7DEDED', 0.07));
+          ng.addColorStop(0.7,  hexRGBA('#7DEDED', 0.025));
+          ng.addColorStop(1,    hexRGBA('#7DEDED', 0));
+          ctx.fillStyle = ng;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, W * MW.longR, H * MW.shortR * 1.7, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        function drawStar(s) {
+          const a = s.baseAlpha * (0.5 + 0.5 * Math.sin(t * 0.001 * s.speed + s.phase));
+          ctx.globalAlpha = a;
+          ctx.fillStyle = s.color;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Professional bokeh-style particle: outer soft glow + inner glow + white core + subtle pulse
+        function drawParticle(p) {
+          p.x += p.vx;
+          p.y += p.vy;
+          if (p.x < -10) p.x = W + 10;
+          if (p.x > W + 10) p.x = -10;
+          if (p.y < -10) p.y = H + 10;
+          if (p.y > H + 10) p.y = -10;
+          const pulse = 0.82 + 0.18 * Math.sin(t * p.pulseSpeed + p.pulsePhase);
+
+          // Outer soft halo
+          const r1 = p.r * 6.5;
+          const g1 = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r1);
+          g1.addColorStop(0,    hexRGBA(p.color, 0.32 * pulse));
+          g1.addColorStop(0.2,  hexRGBA(p.color, 0.20 * pulse));
+          g1.addColorStop(0.55, hexRGBA(p.color, 0.07 * pulse));
+          g1.addColorStop(1,    hexRGBA(p.color, 0));
+          ctx.fillStyle = g1;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r1, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Inner bright glow
+          const r2 = p.r * 2.4;
+          const g2 = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r2);
+          g2.addColorStop(0,   hexRGBA(p.color, 0.85 * pulse));
+          g2.addColorStop(0.5, hexRGBA(p.color, 0.40 * pulse));
+          g2.addColorStop(1,   hexRGBA(p.color, 0));
+          ctx.fillStyle = g2;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, r2, 0, Math.PI * 2);
+          ctx.fill();
+
+          // White-hot core
+          ctx.fillStyle = 'rgba(255,255,255,' + (0.9 * pulse) + ')';
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 0.55, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        function drawSaturn(cx, cy, r) {
+          const bodyGrad = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.35, 0, cx, cy, r);
+          bodyGrad.addColorStop(0, '#cbeeee');
+          bodyGrad.addColorStop(0.55, '#7DEDED');
+          bodyGrad.addColorStop(1, '#3FB5B5');
+          ctx.fillStyle = bodyGrad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.fill();
+          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 2.2);
+          glow.addColorStop(0,   hexRGBA('#7DEDED', 0.28));
+          glow.addColorStop(0.5, hexRGBA('#7DEDED', 0.10));
+          glow.addColorStop(1,   hexRGBA('#7DEDED', 0));
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r * 2.2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.save();
+          ctx.translate(cx, cy);
+          ctx.rotate(-0.38);
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = hexRGBA('#B07DED', 0.75);
+          ctx.lineWidth = 1.8;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, r * 1.75, r * 0.5, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.strokeStyle = hexRGBA('#7DEDED', 0.45);
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.ellipse(0, 0, r * 2.05, r * 0.62, 0, 0, Math.PI * 2);
+          ctx.stroke();
+          ctx.restore();
+        }
+
+        function drawMoon(cx, cy, r) {
+          const bg = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.35, 0, cx, cy, r);
+          bg.addColorStop(0, '#f5f5f5');
+          bg.addColorStop(0.6, '#d0d8e0');
+          bg.addColorStop(1, '#8e98a3');
+          ctx.fillStyle = bg;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.fill();
+          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 1.9);
+          glow.addColorStop(0,   'rgba(255,255,255,0.20)');
+          glow.addColorStop(0.5, 'rgba(255,255,255,0.06)');
+          glow.addColorStop(1,   'rgba(255,255,255,0)');
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r * 1.9, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = 'rgba(110,120,130,0.45)';
+          const craters = [
+            [r * 0.25, -r * 0.15, r * 0.20],
+            [-r * 0.3,  r * 0.20, r * 0.14],
+            [r * 0.05,  r * 0.40, r * 0.11],
+            [-r * 0.1, -r * 0.45, r * 0.09]
+          ];
+          for (let i = 0; i < craters.length; i++) {
+            const c = craters[i];
+            ctx.beginPath();
+            ctx.arc(cx + c[0], cy + c[1], c[2], 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        function drawSmallPlanet(cx, cy, r, color) {
+          const pg = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.3, 0, cx, cy, r);
+          pg.addColorStop(0, '#ffffff');
+          pg.addColorStop(0.5, color);
+          pg.addColorStop(1, color);
+          ctx.globalAlpha = 0.88;
+          ctx.fillStyle = pg;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r, 0, Math.PI * 2);
+          ctx.fill();
+          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 2.1);
+          glow.addColorStop(0, hexRGBA(color, 0.22));
+          glow.addColorStop(1, hexRGBA(color, 0));
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(cx, cy, r * 2.1, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.globalAlpha = 1;
+        }
+
+        // Per-layer transform: parallax (mouse-follow) + scroll zoom from canvas center.
+        // Zoom uses eased curve so far scroll feels rapidly "flying through".
+        function withLayer(parallaxAmount, fn) {
+          ctx.save();
+          // Same-direction parallax: objects shift with the mouse
+          ctx.translate(mouseLerpX * parallaxAmount, mouseLerpY * parallaxAmount);
+          const eased = scrollProg * scrollProg * 1.6 + scrollProg * 1.0;
+          const zoom = 1 + eased;
+          if (zoom !== 1) {
+            ctx.translate(W / 2, H / 2);
+            ctx.scale(zoom, zoom);
+            ctx.translate(-W / 2, -H / 2);
+          }
+          fn();
+          ctx.restore();
+        }
+
+        function render() {
+          // Smooth mouse lerp
+          mouseLerpX += (mouseTargetX - mouseLerpX) * 0.06;
+          mouseLerpY += (mouseTargetY - mouseLerpY) * 0.06;
+
+          const op = parseFloat(canvas.style.opacity || '1');
+          if (op > 0.01) {
+            ctx.clearRect(0, 0, W, H);
+
+            // 1. Milky Way nebula (deepest)
+            withLayer(3, drawMilkyWay);
+
+            // 2. Background field stars
+            withLayer(6, function () {
+              for (let i = 0; i < stars.length; i++) {
+                if (stars[i].layer === 'field') drawStar(stars[i]);
+              }
+            });
+
+            // 3. Milky Way star cluster (slightly more parallax)
+            withLayer(10, function () {
+              for (let i = 0; i < stars.length; i++) {
+                if (stars[i].layer === 'mw') drawStar(stars[i]);
+              }
+            });
+
+            // 4. Cosmic particles (mid layer)
+            withLayer(22, function () {
+              for (let i = 0; i < particles.length; i++) drawParticle(particles[i]);
+            });
+
+            // 5. Small floating planets
+            withLayer(34, function () {
+              for (let i = 0; i < planets.length; i++) {
+                const pl = planets[i];
+                const fx = Math.sin(t * 0.0007 + pl.phaseX) * pl.ampX;
+                const fy = Math.cos(t * 0.0009 + pl.phaseY) * pl.ampY;
+                drawSmallPlanet(pl.fx * W + fx, pl.fy * H + fy, pl.r, pl.color);
+              }
+            });
+
+            // 6. Moon
+            withLayer(44, function () {
+              const moonR = Math.min(W, H) * 0.032;
+              const moonCx = W * 0.18 + Math.sin(t * 0.00055) * 16;
+              const moonCy = H * 0.78 + Math.cos(t * 0.00075) * 13;
+              drawMoon(moonCx, moonCy, moonR);
+            });
+
+            // 7. Saturn (closest — biggest parallax response)
+            withLayer(58, function () {
+              const satR = Math.min(W, H) * 0.055;
+              const satCx = W * 0.82 + Math.cos(t * 0.00055) * 14;
+              const satCy = H * 0.28 + Math.sin(t * 0.00045) * 16;
+              drawSaturn(satCx, satCy, satR);
+            });
+          }
+          t += 16;
+          requestAnimationFrame(render);
+        }
+
+        resize();
+        window.addEventListener('resize', resize);
+        window.addEventListener('scroll', updateScroll, { passive: true });
+        updateScroll();
+        render();
+      })();
+    </script>
+
+</body>
+</html>

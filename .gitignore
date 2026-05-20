@@ -1,0 +1,23 @@
+# Dev artifacts archived locally — keep off the repo
+_archive/
+
+# Local Claude Code state
+.claude/
+
+# Hidden helper scripts (just in case any remain in root)
+.*.py
+.blender_viewport.png
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Node (in case ever added)
+node_modules/
+npm-debug.log*
+
+# Backups
+*.backup

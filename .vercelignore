@@ -1,0 +1,13 @@
+# Exclude dev/internal artifacts from Vercel deployment
+_archive/
+.claude/
+.git/
+.vscode/
+*.py
+*.md
+*.backup
+.blender_viewport.png
+
+# Editor noise
+.DS_Store
+Thumbs.db
