@@ -148,7 +148,7 @@ class Effect {
     this.scene = new THREE.Scene();
 
     this.camera = new THREE.PerspectiveCamera(
-      55,
+      35,
       window.innerWidth / window.innerHeight,
       0.01,
       1000
