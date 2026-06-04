@@ -224,7 +224,9 @@ class Effect {
     let lambertMaterial = new THREE.MeshPhongMaterial({});
     this.nucleus = new THREE.Mesh(icosahedronGeometry, lambertMaterial);
     this.nucleus.position.set(0, 0, 0);
-    this.scene.add(this.nucleus);
+    this.nucleus.visible = false;
+    // Central wobbly nucleus removed by design — kept around so the
+    // displacement animation can still update its geometry without errors.
 
     // Noise generator initialization
     this.noise = createNoise2D();
@@ -269,7 +271,7 @@ class Effect {
 
     // Orange comet
     this.pointComet1 = createPointParticles({
-      size: 12,
+      size: 22,
       total: 1,
       transparent: true,
       max: 25,
@@ -279,7 +281,7 @@ class Effect {
 
     // Blue planet
     this.planet1 = createPointParticles({
-      size: 9,
+      size: 22,
       total: 1,
       transparent: false,
       max: 60,
@@ -287,7 +289,7 @@ class Effect {
     });
     // Red planet
     this.planet2 = createPointParticles({
-      size: 12,
+      size: 26,
       total: 1,
       transparent: false,
       max: 60,
@@ -295,7 +297,7 @@ class Effect {
     });
     // Moon-like planet
     this.planet3 = createPointParticles({
-      size: 12,
+      size: 26,
       total: 1,
       transparent: false,
       max: 60,
