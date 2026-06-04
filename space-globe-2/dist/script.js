@@ -101,6 +101,7 @@ class Effect {
     this.planet1.material.map = this.textures.planet1;
     this.planet2.material.map = this.textures.planet2;
     this.planet3.material.map = this.textures.planet3;
+    this.planet4.material.map = this.textures.planet1;
     this.nucleus.material.map = this.textures.star;
     this.sphereBg.material.map = this.textures.sky;
     this.stars.material.map = this.textures.flare2;
@@ -271,7 +272,7 @@ class Effect {
 
     // Orange comet
     this.pointComet1 = createPointParticles({
-      size: 22,
+      size: 30,
       total: 1,
       transparent: true,
       max: 25,
@@ -281,7 +282,7 @@ class Effect {
 
     // Blue planet
     this.planet1 = createPointParticles({
-      size: 22,
+      size: 38,
       total: 1,
       transparent: false,
       max: 60,
@@ -289,7 +290,7 @@ class Effect {
     });
     // Red planet
     this.planet2 = createPointParticles({
-      size: 26,
+      size: 44,
       total: 1,
       transparent: false,
       max: 60,
@@ -297,15 +298,24 @@ class Effect {
     });
     // Moon-like planet
     this.planet3 = createPointParticles({
-      size: 26,
+      size: 44,
       total: 1,
       transparent: false,
       max: 60,
       min: 40,
     });
+    // Fourth planet — sits on a different orbit for variety
+    this.planet4 = createPointParticles({
+      size: 42,
+      total: 1,
+      transparent: false,
+      max: 75,
+      min: 55,
+    });
     this.scene.add(this.planet1);
     this.scene.add(this.planet2);
     this.scene.add(this.planet3);
+    this.scene.add(this.planet4);
 
     // Helper function for creating point particles
     function createPointParticles({
@@ -577,6 +587,8 @@ class Effect {
     this.planet1.rotation.y += 0.001;
     this.planet2.rotation.z += 0.003;
     this.planet3.rotation.x += 0.0005;
+    this.planet4.rotation.y -= 0.0015;
+    this.planet4.rotation.x += 0.0008;
   }
 
   //MARK: -loop

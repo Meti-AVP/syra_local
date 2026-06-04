@@ -167,7 +167,142 @@
 
 </head>
   <body id="ie2p">
-    
+
+    <!-- Intro splash: comet streak + premium reveal of the brand line -->
+    <div id="syra-intro" aria-hidden="true">
+      <div class="syra-intro-comet"></div>
+      <div class="syra-intro-comet syra-intro-comet--2"></div>
+      <div class="syra-intro-stars"></div>
+      <div class="syra-intro-text">
+        <h1 class="syra-intro-title">SYRA</h1>
+        <p class="syra-intro-sub">Where learning takes shape</p>
+      </div>
+    </div>
+    <style>
+      #syra-intro {
+        position: fixed;
+        inset: 0;
+        z-index: 100000;
+        background:
+          radial-gradient(ellipse at 30% 40%, rgba(125,237,237,0.06), transparent 55%),
+          radial-gradient(ellipse at 70% 60%, rgba(176,125,237,0.08), transparent 55%),
+          #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        pointer-events: none;
+        animation: syra-intro-fadeout 0.9s cubic-bezier(0.7, 0, 0.84, 0) 3.6s forwards;
+      }
+      .syra-intro-stars {
+        position: absolute; inset: 0;
+        background-image:
+          radial-gradient(1px 1px at 12% 22%, rgba(255,255,255,0.9) 50%, transparent 51%),
+          radial-gradient(1px 1px at 28% 78%, rgba(255,255,255,0.7) 50%, transparent 51%),
+          radial-gradient(1.5px 1.5px at 48% 18%, rgba(255,255,255,0.95) 50%, transparent 51%),
+          radial-gradient(1px 1px at 65% 70%, rgba(255,255,255,0.7) 50%, transparent 51%),
+          radial-gradient(1.5px 1.5px at 82% 35%, rgba(255,255,255,0.85) 50%, transparent 51%),
+          radial-gradient(1px 1px at 92% 84%, rgba(255,255,255,0.7) 50%, transparent 51%),
+          radial-gradient(1px 1px at 6% 60%, rgba(255,255,255,0.6) 50%, transparent 51%),
+          radial-gradient(1px 1px at 38% 52%, rgba(255,255,255,0.5) 50%, transparent 51%),
+          radial-gradient(1px 1px at 56% 88%, rgba(255,255,255,0.6) 50%, transparent 51%);
+        opacity: 0;
+        animation: syra-intro-stars 3.6s ease-out 0.2s forwards;
+      }
+      @keyframes syra-intro-stars {
+        0% { opacity: 0; }
+        20% { opacity: 0.8; }
+        80% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+      .syra-intro-comet {
+        position: absolute;
+        top: 18%;
+        left: -25vw;
+        width: 260px;
+        height: 2px;
+        background: linear-gradient(90deg,
+          transparent 0%,
+          rgba(125,237,237,0.0) 8%,
+          rgba(125,237,237,0.4) 45%,
+          rgba(255,255,255,1) 92%,
+          rgba(176,125,237,0.9) 100%);
+        border-radius: 2px;
+        box-shadow:
+          0 0 18px rgba(125,237,237,0.7),
+          0 0 36px rgba(176,125,237,0.5),
+          0 0 70px rgba(125,237,237,0.25);
+        filter: blur(0.4px);
+        transform: rotate(18deg);
+        opacity: 0;
+        animation: syra-intro-comet 2.4s cubic-bezier(0.22, 0.61, 0.36, 1) 0.15s forwards;
+      }
+      .syra-intro-comet--2 {
+        top: 62%;
+        width: 180px;
+        animation-duration: 2.8s;
+        animation-delay: 0.9s;
+        opacity: 0;
+      }
+      @keyframes syra-intro-comet {
+        0% { opacity: 0; transform: translate(0, 0) rotate(18deg); }
+        8% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { opacity: 0; transform: translate(150vw, 48vh) rotate(18deg); }
+      }
+      .syra-intro-text {
+        position: relative;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(14px) scale(0.985);
+        animation:
+          syra-intro-text-in 1.4s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards,
+          syra-intro-text-out 0.7s ease 3.1s forwards;
+      }
+      @keyframes syra-intro-text-in {
+        to { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      @keyframes syra-intro-text-out {
+        to { opacity: 0; transform: translateY(-8px) scale(1.01); }
+      }
+      .syra-intro-title {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: clamp(84px, 16vw, 220px);
+        font-weight: 200;
+        letter-spacing: 0.06em;
+        color: #fff;
+        margin: 0;
+        line-height: 1;
+        text-shadow:
+          0 0 28px rgba(125,237,237,0.35),
+          0 0 56px rgba(176,125,237,0.28),
+          0 0 110px rgba(125,237,237,0.18);
+      }
+      .syra-intro-sub {
+        font-family: 'Inter', -apple-system, sans-serif;
+        font-size: clamp(11px, 1.4vw, 18px);
+        font-weight: 300;
+        letter-spacing: 0.45em;
+        color: rgba(255,255,255,0.72);
+        margin: 22px 0 0 6px;
+        text-transform: uppercase;
+      }
+      @keyframes syra-intro-fadeout {
+        to { opacity: 0; visibility: hidden; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #syra-intro { animation: syra-intro-fadeout 0.4s ease 0.6s forwards; }
+        .syra-intro-comet, .syra-intro-comet--2, .syra-intro-stars, .syra-intro-text { animation: none; opacity: 0; }
+      }
+    </style>
+    <script>
+      (function(){
+        var intro = document.getElementById('syra-intro');
+        if (!intro) return;
+        setTimeout(function(){ if (intro && intro.parentNode) intro.parentNode.removeChild(intro); }, 4800);
+      })();
+    </script>
+
     <style>
       /* Visually hidden but accessible */
   .sr-only {
@@ -1624,9 +1759,14 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
         var container = document.querySelector('.webgl');
         function fade() {
           var s = window.scrollY || window.pageYOffset || 0;
-          var op = Math.max(0, Math.min(1, 1 - s / window.innerHeight));
+          var p = Math.max(0, Math.min(1, s / window.innerHeight)); // 0 -> 1 over first viewport
+          var op = 1 - p;
+          var scale = 1 + p * 0.9; // zoom in as we scroll
           if (container) {
             container.style.opacity = op;
+            container.style.transform = 'scale(' + scale + ')';
+            container.style.transformOrigin = 'center center';
+            container.style.willChange = 'opacity, transform';
             container.style.display = op > 0.01 ? 'block' : 'none';
           }
         }
