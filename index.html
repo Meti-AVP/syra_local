@@ -1548,9 +1548,9 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
 })();
     </script>
 
-    <!-- Cosmic hero overlay: independent canvas, fades on scroll, no impact on 3D scene -->
+    <!-- Hero 3D space globe (replaces the old 2D cosmic-bg). Three.js scene with auto-rotate, mouse parallax, scroll fade. -->
     <style>
-      #cosmic-bg {
+      .webgl {
         position: fixed;
         top: 0;
         left: 0;
@@ -1560,373 +1560,58 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
         pointer-events: none;
         transition: opacity 80ms linear;
       }
+      .webgl > canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
     </style>
-    <canvas id="cosmic-bg"></canvas>
+    <div class="webgl"></div>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.161.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.161.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="space-globe-2/dist/script.js"></script>
     <script>
+      /* Mouse-parallax + scroll-fade for the hero space globe */
       (function () {
-        const canvas = document.getElementById('cosmic-bg');
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        let W = 0, H = 0;
-        const DPR = Math.min(window.devicePixelRatio || 1, 2);
-
-        function hexRGBA(hex, a) {
-          const r = parseInt(hex.slice(1, 3), 16);
-          const g = parseInt(hex.slice(3, 5), 16);
-          const b = parseInt(hex.slice(5, 7), 16);
-          return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
-        }
-
-        let stars = [];
-        let particles = [];
-        let planets = [];
-
-        const MW = { cx: 0.5, cy: 0.45, angle: -0.45, longR: 0.7, shortR: 0.08 };
-
-        function initStars() {
-          stars = [];
-          const total = Math.floor((W * H) / 4200);
-          const mwCount = Math.floor(total * 0.4);
-          const fieldCount = total - mwCount;
-          const palette = ['#ffffff', '#ffffff', '#ffffff', '#7DEDED', '#B07DED', '#7CEA9F'];
-          for (let i = 0; i < fieldCount; i++) {
-            stars.push({
-              x: Math.random() * W,
-              y: Math.random() * H,
-              r: Math.random() * 1.2 + 0.3,
-              phase: Math.random() * Math.PI * 2,
-              speed: 0.4 + Math.random() * 1.6,
-              baseAlpha: 0.35 + Math.random() * 0.55,
-              color: palette[Math.floor(Math.random() * palette.length)],
-              layer: 'field'
-            });
-          }
-          const cx = W * MW.cx, cy = H * MW.cy;
-          const ang = MW.angle;
-          for (let i = 0; i < mwCount; i++) {
-            const u = (Math.random() - 0.5) * W * MW.longR * 2;
-            const v = ((Math.random() + Math.random() + Math.random()) / 3 - 0.5) * H * MW.shortR * 2.5;
-            const x = cx + u * Math.cos(ang) - v * Math.sin(ang);
-            const y = cy + u * Math.sin(ang) + v * Math.cos(ang);
-            stars.push({
-              x: x, y: y,
-              r: Math.random() * 1.1 + 0.25,
-              phase: Math.random() * Math.PI * 2,
-              speed: 0.4 + Math.random() * 1.6,
-              baseAlpha: 0.45 + Math.random() * 0.5,
-              color: palette[Math.floor(Math.random() * palette.length)],
-              layer: 'mw'
-            });
-          }
-        }
-
-        function initParticles() {
-          particles = [];
-          for (let i = 0; i < 26; i++) {
-            particles.push({
-              x: Math.random() * W,
-              y: Math.random() * H,
-              vx: (Math.random() - 0.5) * 0.18,
-              vy: (Math.random() - 0.5) * 0.18,
-              r: 1 + Math.random() * 1.8,
-              pulsePhase: Math.random() * Math.PI * 2,
-              pulseSpeed: 0.0008 + Math.random() * 0.0012,
-              color: ['#7DEDED', '#B07DED', '#FFFFFF', '#7CEA9F'][Math.floor(Math.random() * 4)]
-            });
-          }
-        }
-
-        function initPlanets() {
-          // Stronger float amplitudes (~2.5x of previous)
-          planets = [
-            { fx: 0.13, fy: 0.72, r: 5,   color: '#B07DED', phaseX: 0.0, phaseY: 1.2, ampX: 18, ampY: 14 },
-            { fx: 0.55, fy: 0.16, r: 3,   color: '#7CEA9F', phaseX: 1.5, phaseY: 0.4, ampX: 14, ampY: 12 },
-            { fx: 0.72, fy: 0.82, r: 4,   color: '#7DEDED', phaseX: 0.8, phaseY: 2.1, ampX: 16, ampY: 13 },
-            { fx: 0.92, fy: 0.58, r: 4.5, color: '#F0B070', phaseX: 2.4, phaseY: 0.9, ampX: 13, ampY: 16 }
-          ];
-        }
-
-        function resize() {
-          W = window.innerWidth;
-          H = window.innerHeight;
-          canvas.width = W * DPR;
-          canvas.height = H * DPR;
-          canvas.style.width = W + 'px';
-          canvas.style.height = H + 'px';
-          ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-          initStars();
-          initParticles();
-          initPlanets();
-        }
-
-        // Mouse parallax (objects shift WITH the mouse — "spatial" feel)
-        let mouseTargetX = 0, mouseTargetY = 0;
-        let mouseLerpX = 0, mouseLerpY = 0;
+        var target = { x: 0, y: 0 }, lerp = { x: 0, y: 0 };
         window.addEventListener('mousemove', function (e) {
-          mouseTargetX = (e.clientX / W) - 0.5;
-          mouseTargetY = (e.clientY / H) - 0.5;
+          target.x = (e.clientX / window.innerWidth) * 2 - 1;
+          target.y = (e.clientY / window.innerHeight) * 2 - 1;
         }, { passive: true });
         window.addEventListener('touchmove', function (e) {
-          if (e.touches.length > 0) {
-            mouseTargetX = (e.touches[0].clientX / W) - 0.5;
-            mouseTargetY = (e.touches[0].clientY / H) - 0.5;
+          if (e.touches && e.touches[0]) {
+            target.x = (e.touches[0].clientX / window.innerWidth) * 2 - 1;
+            target.y = (e.touches[0].clientY / window.innerHeight) * 2 - 1;
           }
         }, { passive: true });
-
-        // Scroll → opacity fade + zoom-in (camera flies through)
-        let scrollProg = 0;
-        let atEnd = false; // true near the very bottom -> plain white stars only (no moon/planets)
-        function updateScroll() {
-          const s = window.scrollY || window.pageYOffset || 0;
-          scrollProg = Math.max(0, Math.min(1, s / H));
-          let op = 1 - scrollProg;
-          // Bring the starfield back near the very bottom = space at the end of the page
-          const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-          const overall = maxScroll > 0 ? s / maxScroll : 0;
-          atEnd = overall > 0.8;
-          if (atEnd) {
-            const endFade = Math.min(1, (overall - 0.8) / 0.15);
-            op = Math.max(op, endFade * 0.5);
-            scrollProg = scrollProg * (1 - endFade); // ease the zoom back to a normal starfield
+        (function tick() {
+          lerp.x += (target.x - lerp.x) * 0.05;
+          lerp.y += (target.y - lerp.y) * 0.05;
+          var fx = window.spaceGlobeEffect;
+          if (fx && fx.scene) {
+            fx.scene.rotation.y = lerp.x * 0.25;
+            fx.scene.rotation.x = lerp.y * 0.12;
           }
-          canvas.style.opacity = op;
-          canvas.style.display = op > 0.01 ? 'block' : 'none';
-        }
-
-        let t = 0;
-
-        function drawMilkyWay() {
-          const cx = W * MW.cx, cy = H * MW.cy;
-          ctx.save();
-          ctx.translate(cx, cy);
-          ctx.rotate(MW.angle);
-          const ng = ctx.createRadialGradient(0, 0, 0, 0, 0, W * MW.longR);
-          ng.addColorStop(0,    hexRGBA('#B07DED', 0.12));
-          ng.addColorStop(0.35, hexRGBA('#7DEDED', 0.07));
-          ng.addColorStop(0.7,  hexRGBA('#7DEDED', 0.025));
-          ng.addColorStop(1,    hexRGBA('#7DEDED', 0));
-          ctx.fillStyle = ng;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, W * MW.longR, H * MW.shortR * 1.7, 0, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.restore();
-        }
-
-        function drawStar(s) {
-          const a = s.baseAlpha * (0.5 + 0.5 * Math.sin(t * 0.001 * s.speed + s.phase));
-          ctx.globalAlpha = a;
-          ctx.fillStyle = atEnd ? '#ffffff' : s.color;
-          ctx.beginPath();
-          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        }
-
-        // Professional bokeh-style particle: outer soft glow + inner glow + white core + subtle pulse
-        function drawParticle(p) {
-          p.x += p.vx;
-          p.y += p.vy;
-          if (p.x < -10) p.x = W + 10;
-          if (p.x > W + 10) p.x = -10;
-          if (p.y < -10) p.y = H + 10;
-          if (p.y > H + 10) p.y = -10;
-          const pulse = 0.82 + 0.18 * Math.sin(t * p.pulseSpeed + p.pulsePhase);
-
-          // Outer soft halo
-          const r1 = p.r * 6.5;
-          const g1 = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r1);
-          g1.addColorStop(0,    hexRGBA(p.color, 0.32 * pulse));
-          g1.addColorStop(0.2,  hexRGBA(p.color, 0.20 * pulse));
-          g1.addColorStop(0.55, hexRGBA(p.color, 0.07 * pulse));
-          g1.addColorStop(1,    hexRGBA(p.color, 0));
-          ctx.fillStyle = g1;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, r1, 0, Math.PI * 2);
-          ctx.fill();
-
-          // Inner bright glow
-          const r2 = p.r * 2.4;
-          const g2 = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r2);
-          g2.addColorStop(0,   hexRGBA(p.color, 0.85 * pulse));
-          g2.addColorStop(0.5, hexRGBA(p.color, 0.40 * pulse));
-          g2.addColorStop(1,   hexRGBA(p.color, 0));
-          ctx.fillStyle = g2;
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, r2, 0, Math.PI * 2);
-          ctx.fill();
-
-          // White-hot core
-          ctx.fillStyle = 'rgba(255,255,255,' + (0.9 * pulse) + ')';
-          ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r * 0.55, 0, Math.PI * 2);
-          ctx.fill();
-        }
-
-        function drawSaturn(cx, cy, r) {
-          const bodyGrad = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.35, 0, cx, cy, r);
-          bodyGrad.addColorStop(0, '#cbeeee');
-          bodyGrad.addColorStop(0.55, '#7DEDED');
-          bodyGrad.addColorStop(1, '#3FB5B5');
-          ctx.fillStyle = bodyGrad;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
-          ctx.fill();
-          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 2.2);
-          glow.addColorStop(0,   hexRGBA('#7DEDED', 0.28));
-          glow.addColorStop(0.5, hexRGBA('#7DEDED', 0.10));
-          glow.addColorStop(1,   hexRGBA('#7DEDED', 0));
-          ctx.fillStyle = glow;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r * 2.2, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.save();
-          ctx.translate(cx, cy);
-          ctx.rotate(-0.38);
-          ctx.lineCap = 'round';
-          ctx.strokeStyle = hexRGBA('#B07DED', 0.75);
-          ctx.lineWidth = 1.8;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, r * 1.75, r * 0.5, 0, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.strokeStyle = hexRGBA('#7DEDED', 0.45);
-          ctx.lineWidth = 1;
-          ctx.beginPath();
-          ctx.ellipse(0, 0, r * 2.05, r * 0.62, 0, 0, Math.PI * 2);
-          ctx.stroke();
-          ctx.restore();
-        }
-
-        function drawMoon(cx, cy, r) {
-          const bg = ctx.createRadialGradient(cx - r * 0.35, cy - r * 0.35, 0, cx, cy, r);
-          bg.addColorStop(0, '#f5f5f5');
-          bg.addColorStop(0.6, '#d0d8e0');
-          bg.addColorStop(1, '#8e98a3');
-          ctx.fillStyle = bg;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
-          ctx.fill();
-          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 1.9);
-          glow.addColorStop(0,   'rgba(255,255,255,0.20)');
-          glow.addColorStop(0.5, 'rgba(255,255,255,0.06)');
-          glow.addColorStop(1,   'rgba(255,255,255,0)');
-          ctx.fillStyle = glow;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r * 1.9, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.fillStyle = 'rgba(110,120,130,0.45)';
-          const craters = [
-            [r * 0.25, -r * 0.15, r * 0.20],
-            [-r * 0.3,  r * 0.20, r * 0.14],
-            [r * 0.05,  r * 0.40, r * 0.11],
-            [-r * 0.1, -r * 0.45, r * 0.09]
-          ];
-          for (let i = 0; i < craters.length; i++) {
-            const c = craters[i];
-            ctx.beginPath();
-            ctx.arc(cx + c[0], cy + c[1], c[2], 0, Math.PI * 2);
-            ctx.fill();
+          requestAnimationFrame(tick);
+        })();
+        var container = document.querySelector('.webgl');
+        function fade() {
+          var s = window.scrollY || window.pageYOffset || 0;
+          var op = Math.max(0, Math.min(1, 1 - s / window.innerHeight));
+          if (container) {
+            container.style.opacity = op;
+            container.style.display = op > 0.01 ? 'block' : 'none';
           }
         }
-
-        function drawSmallPlanet(cx, cy, r, color) {
-          const pg = ctx.createRadialGradient(cx - r * 0.3, cy - r * 0.3, 0, cx, cy, r);
-          pg.addColorStop(0, '#ffffff');
-          pg.addColorStop(0.5, color);
-          pg.addColorStop(1, color);
-          ctx.globalAlpha = 0.88;
-          ctx.fillStyle = pg;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r, 0, Math.PI * 2);
-          ctx.fill();
-          const glow = ctx.createRadialGradient(cx, cy, r, cx, cy, r * 2.1);
-          glow.addColorStop(0, hexRGBA(color, 0.22));
-          glow.addColorStop(1, hexRGBA(color, 0));
-          ctx.fillStyle = glow;
-          ctx.beginPath();
-          ctx.arc(cx, cy, r * 2.1, 0, Math.PI * 2);
-          ctx.fill();
-          ctx.globalAlpha = 1;
-        }
-
-        // Per-layer transform: parallax (mouse-follow) + scroll zoom from canvas center.
-        // Zoom uses eased curve so far scroll feels rapidly "flying through".
-        function withLayer(parallaxAmount, fn) {
-          ctx.save();
-          // Same-direction parallax: objects shift with the mouse
-          ctx.translate(mouseLerpX * parallaxAmount, mouseLerpY * parallaxAmount);
-          const eased = scrollProg * scrollProg * 1.6 + scrollProg * 1.0;
-          const zoom = 1 + eased;
-          if (zoom !== 1) {
-            ctx.translate(W / 2, H / 2);
-            ctx.scale(zoom, zoom);
-            ctx.translate(-W / 2, -H / 2);
-          }
-          fn();
-          ctx.restore();
-        }
-
-        function render() {
-          // Smooth mouse lerp
-          mouseLerpX += (mouseTargetX - mouseLerpX) * 0.06;
-          mouseLerpY += (mouseTargetY - mouseLerpY) * 0.06;
-
-          const op = parseFloat(canvas.style.opacity || '1');
-          if (op > 0.01) {
-            ctx.clearRect(0, 0, W, H);
-
-            // 1. Milky Way nebula (deepest) — hidden at the page end (plain stars only)
-            if (!atEnd) withLayer(3, drawMilkyWay);
-
-            // 2. Background field stars
-            withLayer(6, function () {
-              for (let i = 0; i < stars.length; i++) {
-                if (stars[i].layer === 'field') drawStar(stars[i]);
-              }
-            });
-
-            // 3. Milky Way star cluster (slightly more parallax)
-            withLayer(10, function () {
-              for (let i = 0; i < stars.length; i++) {
-                if (stars[i].layer === 'mw') drawStar(stars[i]);
-              }
-            });
-
-            // 4-7. Particles, planets, moon, Saturn — only away from the page end
-            if (!atEnd) {
-              withLayer(22, function () {
-                for (let i = 0; i < particles.length; i++) drawParticle(particles[i]);
-              });
-              withLayer(34, function () {
-                for (let i = 0; i < planets.length; i++) {
-                  const pl = planets[i];
-                  const fx = Math.sin(t * 0.0007 + pl.phaseX) * pl.ampX;
-                  const fy = Math.cos(t * 0.0009 + pl.phaseY) * pl.ampY;
-                  drawSmallPlanet(pl.fx * W + fx, pl.fy * H + fy, pl.r, pl.color);
-                }
-              });
-              withLayer(44, function () {
-                const moonR = Math.min(W, H) * 0.032;
-                const moonCx = W * 0.18 + Math.sin(t * 0.00055) * 16;
-                const moonCy = H * 0.78 + Math.cos(t * 0.00075) * 13;
-                drawMoon(moonCx, moonCy, moonR);
-              });
-              withLayer(58, function () {
-                const satR = Math.min(W, H) * 0.055;
-                const satCx = W * 0.82 + Math.cos(t * 0.00055) * 14;
-                const satCy = H * 0.28 + Math.sin(t * 0.00045) * 16;
-                drawSaturn(satCx, satCy, satR);
-              });
-            }
-          }
-          t += 16;
-          requestAnimationFrame(render);
-        }
-
-        resize();
-        window.addEventListener('resize', resize);
-        window.addEventListener('scroll', updateScroll, { passive: true });
-        updateScroll();
-        render();
+        window.addEventListener('scroll', fade, { passive: true });
+        window.addEventListener('resize', fade, { passive: true });
+        fade();
       })();
     </script>
 
