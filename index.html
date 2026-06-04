@@ -181,6 +181,27 @@
     white-space:nowrap !important;
     border:0 !important;
   }
+
+  /* Headline text overlapping the 3D scene: very subtle drop shadow + hairline stroke for legibility */
+  #i64iv,
+  #i64iv-2,
+  #i64iv-3,
+  #i64iv-3-2,
+  #i64iv-3-2-2,
+  #i64iv-3-2-2-3-4-3-2,
+  #iz15o6,
+  #isab62-3-2,
+  #isab62-2-3,
+  #isab62-2-2-2,
+  #isab62-2-2-2-2,
+  .pw-text-style#i64iv,
+  .pw-text-style#isab62-2-3,
+  .pw-text-style#isab62-3-2 {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.65), 0 0 22px rgba(0,0,0,0.35) !important;
+    -webkit-text-stroke: 0.4px rgba(255,255,255,0.45);
+    text-stroke: 0.4px rgba(255,255,255,0.45);
+    paint-order: stroke fill;
+  }
     </style>
     <div class="sr-only" aria-hidden="false">
       <!-- Main headline -->
