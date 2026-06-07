@@ -72,8 +72,8 @@
     <link rel="preload" media="screen and (min-width: 768)" href="assets/images/texture2.webp" as="image" crossorigin="anonymous" />
     <link rel="preload" media="screen and (min-width: 768)" href="assets/images/rainbow-curve.jpg" as="image" crossorigin="anonymous" />
     <link rel="preload" href="assets/data/ui-state.json" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/video/card-video-1.mp4?v=1779238857" as="fetch" crossorigin="anonymous" />
-    <link rel="preload" href="assets/video/card-video-2.mp4?v=1779238857" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="assets/video/card-video-1.mp4?v=cards-2" as="fetch" crossorigin="anonymous" />
+    <link rel="preload" href="assets/video/card-video-2.mp4?v=cards-2" as="fetch" crossorigin="anonymous" />
     <style>
       * { box-sizing: border-box; } body {margin: 0;}.pw-scene-style &gt; canvas{display:block;width:100%;height:100%;user-select:none;}*{scrollbar-width:none;}::-webkit-scrollbar{display:none;}.pw-loading-bar-style{position:relative;display:flex;justify-content:center;align-items:center;}#pwb-loading-wrap{background-color:#06040A;}#iwzo7{height:100dvh;width:100%;position:relative;display:flex;justify-content:center;align-items:center;background-color:#06040A;}#i4b8i{position:absolute;display:block;font-size:18px;color:#FFFFFF;font-weight:bold;font-family:"neue-plak-regular";text-align:center;}html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video{margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;border-top-style:initial;border-right-style:initial;border-bottom-style:initial;border-left-style:initial;border-top-color:initial;border-right-color:initial;border-bottom-color:initial;border-left-color:initial;border-image-source:initial;border-image-slice:initial;border-image-width:initial;border-image-outset:initial;border-image-repeat:initial;font-style:inherit;font-variant-ligatures:inherit;font-variant-caps:inherit;font-variant-numeric:inherit;font-variant-east-asian:inherit;font-variant-alternates:inherit;font-variant-position:inherit;font-variant-emoji:inherit;font-weight:inherit;font-stretch:inherit;font-size:inherit;line-height:inherit;font-family:inherit;font-optical-sizing:inherit;font-size-adjust:inherit;font-kerning:inherit;font-feature-settings:inherit;font-variation-settings:inherit;vertical-align:baseline;}article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{display:block;}body{line-height:1;}ol, ul{list-style-position:initial;list-style-image:initial;list-style-type:none;}blockquote, q{quotes:none;}blockquote::before, blockquote::after, q::before, q::after{content:none;}table{border-collapse:collapse;-webkit-border-horizontal-spacing:0px;-webkit-border-vertical-spacing:0px;}b, strong{font-weight:bolder;}i, em{font-style:italic;}@font-face{font-family:neue-plak-regular;src:url("assets/fonts/neue-plak-regular.ttf");}
     </style>
@@ -1773,6 +1773,128 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
         window.addEventListener('scroll', fade, { passive: true });
         window.addEventListener('resize', fade, { passive: true });
         fade();
+      })();
+    </script>
+
+    <!-- Floating text overlay that replaces the removed showcase video cards -->
+    <div id="syra-cards-text" aria-hidden="true">
+      <div class="syra-cards-text__col">
+        <p class="syra-cards-text__title">From day one</p>
+        <p class="syra-cards-text__title">to certified.</p>
+        <p class="syra-cards-text__sub">Onboarding · Learning · Certification</p>
+      </div>
+      <div class="syra-cards-text__col">
+        <p class="syra-cards-text__title">Every learner.</p>
+        <p class="syra-cards-text__title">Every milestone.</p>
+        <p class="syra-cards-text__sub">Track · Prove · Improve</p>
+      </div>
+    </div>
+    <style>
+      #syra-cards-text {
+        position: fixed;
+        top: 38%;
+        left: 0; right: 0;
+        z-index: 40;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        transform: translateY(-50%) scale(0.99);
+      }
+      #syra-cards-text.is-visible {
+        transform: translateY(-50%) scale(1);
+      }
+      .syra-cards-text__col {
+        position: absolute;
+        text-align: center;
+        width: clamp(180px, 18vw, 280px);
+        padding: 0 6px;
+        top: 0;
+        transform: translate(-50%, -50%);
+      }
+      .syra-cards-text__col:nth-child(1) { left: 40%; }
+      .syra-cards-text__col:nth-child(2) { left: 60%; }
+      .syra-cards-text__title {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: clamp(16px, 1.8vw, 26px);
+        font-weight: 500;
+        letter-spacing: 0.01em;
+        color: rgba(255,255,255,0.95);
+        margin: 0;
+        line-height: 1.18;
+        text-shadow:
+          0 1px 10px rgba(0,0,0,0.85),
+          0 0 18px rgba(0,0,0,0.6);
+      }
+      .syra-cards-text__title + .syra-cards-text__title { margin-top: 2px; }
+      .syra-cards-text__sub {
+        font-family: 'Inter', -apple-system, sans-serif;
+        font-size: clamp(8px, 0.7vw, 10px);
+        font-weight: 400;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.55);
+        margin: 12px 0 0;
+        text-shadow: 0 1px 10px rgba(0,0,0,0.75);
+      }
+      @media (max-width: 720px) {
+        #syra-cards-text { top: 38%; }
+        .syra-cards-text__col { width: 86vw; }
+        .syra-cards-text__col:nth-child(1) { left: 50%; top: -22vh; }
+        .syra-cards-text__col:nth-child(2) { left: 50%; top: 22vh; }
+      }
+    </style>
+    <script>
+      /* Show the floating text near the showcase scroll moment.
+         Uses the same anchor IDs the side-nav already maps. */
+      (function () {
+        var overlay = document.getElementById('syra-cards-text');
+        if (!overlay) return;
+        var showcaseId = 'ion9z-2-7-3-2-2';
+        var enterpriseId = 'idcqhb-2-2-2';
+
+        function fracOf(id) {
+          var el = document.getElementById(id);
+          if (!el) return null;
+          var top = el.getBoundingClientRect().top + (window.scrollY || 0);
+          var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          return top / max;
+        }
+
+        function smoothstep(edge0, edge1, x) {
+          var t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
+          return t * t * (3 - 2 * t);
+        }
+
+        function update() {
+          var fS = fracOf(showcaseId);
+          var fE = fracOf(enterpriseId);
+          var max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+          var p = (window.scrollY || 0) / max;
+          if (fS == null) return;
+          /* Narrow window strictly inside the showcase scroll moment so the
+             previous "Built to scale" copy and the enterprise section don't
+             collide with this overlay. */
+          var fEnd = (fE != null ? fE : fS + 0.10);
+          var span = Math.max(0.04, fEnd - fS);
+          /* Late-section window — pushed deep into showcase so the
+             "See how teams use SYRA every day" headline has fully cleared
+             before this label appears, and we exit before the next crowd
+             of figures arrives. */
+          var inEdge0 = fS + span * 0.42;
+          var inEdge1 = fS + span * 0.52;
+          var outEdge0 = fS + span * 0.58;
+          var outEdge1 = fS + span * 0.588;
+          var opacity = smoothstep(inEdge0, inEdge1, p) * (1 - smoothstep(outEdge0, outEdge1, p));
+          overlay.style.opacity = opacity.toFixed(3);
+          overlay.classList.toggle('is-visible', opacity > 0.05);
+        }
+
+        window.addEventListener('scroll', update, { passive: true });
+        window.addEventListener('resize', update, { passive: true });
+        if (document.readyState === 'complete') update(); else window.addEventListener('load', update);
+        setTimeout(update, 1500);
+        setTimeout(update, 3500);
       })();
     </script>
 
