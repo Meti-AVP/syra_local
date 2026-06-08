@@ -1704,7 +1704,7 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
 })();
     </script>
 
-    <!-- Hero 3D space globe (replaces the old 2D cosmic-bg). Three.js scene with auto-rotate, mouse parallax, scroll fade. -->
+    <!-- Hero DNA-wave canvas (cascading-waves). 2D canvas effect: cyan + teal-green waves on pure black, slow premium cadence. Mouse parallax + scroll zoom-fade. -->
     <style>
       .webgl {
         position: fixed;
@@ -1715,14 +1715,36 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
         z-index: -1;
         pointer-events: none;
         transition: opacity 80ms linear;
+        background: #000000;
+        overflow: hidden;
+        transform-origin: center center;
+        will-change: opacity, transform;
       }
       .webgl > canvas {
-        display: block;
-        width: 100% !important;
-        height: 100% !important;
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        display: block !important;
       }
     </style>
     <div class="webgl"></div>
+    <script>
+      /* Cascading-waves helper config. Disable autoClear so the heavy black
+         overlay in our draw() builds a smooth fade-trail under the strokes. */
+      window.canvasOptions = {
+        autoClear: false,
+        autoCompensate: false,
+        autoPushPop: true,
+        canvas: true,
+        centered: true,
+        width: null,
+        height: null
+      };
+    </script>
+    <script src="cascading-waves/dist/canvas-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.js"></script>
+    <script src="cascading-waves/dist/script.js"></script>
     <script type="importmap">
       {
         "imports": {
@@ -1731,10 +1753,28 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
         }
       }
     </script>
-    <script type="module" src="space-globe-2/dist/script.js"></script>
     <script>
-      /* Mouse-parallax + scroll-fade for the hero space globe */
+      /* Re-parent the helper-created canvas into .webgl, then drive a subtle
+         mouse parallax + scroll zoom-fade on the wrapper. */
       (function () {
+        var wrap = document.querySelector('.webgl');
+        if (!wrap) return;
+
+        function adopt() {
+          // The CodePen helper appends a canvas to <body>. Move it inside .webgl.
+          var stray = Array.prototype.slice.call(document.body.children).filter(function (n) {
+            return n.tagName === 'CANVAS' && n.parentNode === document.body;
+          });
+          stray.forEach(function (c) { wrap.appendChild(c); });
+        }
+        var adoptTries = 0;
+        var iv = setInterval(function () {
+          adoptTries++;
+          adopt();
+          if (wrap.querySelector('canvas') || adoptTries > 100) clearInterval(iv);
+        }, 80);
+
+        /* Subtle mouse parallax: gently translate the wrap based on cursor. */
         var target = { x: 0, y: 0 }, lerp = { x: 0, y: 0 };
         window.addEventListener('mousemove', function (e) {
           target.x = (e.clientX / window.innerWidth) * 2 - 1;
@@ -1746,29 +1786,30 @@ const _this=this;if(!_this||_this.dataset.gjsType)return;const loadingDuration=6
             target.y = (e.touches[0].clientY / window.innerHeight) * 2 - 1;
           }
         }, { passive: true });
+
+        var scroll = { p: 0 };
+
+        function applyTransform() {
+          var tx = lerp.x * 14;     // px parallax shift
+          var ty = lerp.y * 10;
+          var scale = 1 + scroll.p * 0.9;
+          wrap.style.transform = 'translate(' + tx + 'px, ' + ty + 'px) scale(' + scale + ')';
+        }
+
         (function tick() {
-          lerp.x += (target.x - lerp.x) * 0.05;
-          lerp.y += (target.y - lerp.y) * 0.05;
-          var fx = window.spaceGlobeEffect;
-          if (fx && fx.scene) {
-            fx.scene.rotation.y = lerp.x * 0.25;
-            fx.scene.rotation.x = lerp.y * 0.12;
-          }
+          lerp.x += (target.x - lerp.x) * 0.04;
+          lerp.y += (target.y - lerp.y) * 0.04;
+          applyTransform();
           requestAnimationFrame(tick);
         })();
-        var container = document.querySelector('.webgl');
+
         function fade() {
           var s = window.scrollY || window.pageYOffset || 0;
-          var p = Math.max(0, Math.min(1, s / window.innerHeight)); // 0 -> 1 over first viewport
-          var op = 1 - p;
-          var scale = 1 + p * 0.9; // zoom in as we scroll
-          if (container) {
-            container.style.opacity = op;
-            container.style.transform = 'scale(' + scale + ')';
-            container.style.transformOrigin = 'center center';
-            container.style.willChange = 'opacity, transform';
-            container.style.display = op > 0.01 ? 'block' : 'none';
-          }
+          scroll.p = Math.max(0, Math.min(1, s / window.innerHeight));
+          var op = 1 - scroll.p;
+          wrap.style.opacity = op;
+          wrap.style.display = op > 0.01 ? 'block' : 'none';
+          applyTransform();
         }
         window.addEventListener('scroll', fade, { passive: true });
         window.addEventListener('resize', fade, { passive: true });
